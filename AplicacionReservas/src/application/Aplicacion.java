@@ -1,4 +1,4 @@
-package backend.aplicacion;
+package application;
 
 import java.util.Date;
 
