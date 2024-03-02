@@ -61,11 +61,16 @@ public class Aplicacion {
     	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     }
 
-    // Méthode pour chercher un utilisateur
-    public int buscarUsuario(String nombre) {
-        return -1; // Valeur de retour par défaut, à ajuster selon l'implémentation
-    }
+    public int buscarUsuario(String cedula) {
+        Usuario[] usuarios = this.getUsuarios();
+        int i = 0;
 
+        while (i < usuarios.length && !usuarios[i].getCedula().equals(cedula)) {
+            i++;
+        }
+
+        return (i < usuarios.length) ? i : -1; // Retourne l'index si l'utilisateur est trouvé, sinon -1
+    }
     // Méthode pour supprimer un utilisateur
     public void eliminarUsuario() {
         int i =  this.buscarUsuario();

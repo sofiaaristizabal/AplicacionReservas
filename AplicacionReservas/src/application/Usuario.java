@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Usuario {
 	
+//attributs
 	private String nombre;
 	private String cedula;
 	private int edad;
@@ -14,9 +15,10 @@ public class Usuario {
 	
 	
 	
+//constructors
 	public Usuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) 
 	{
-		this.nombre = nombre;
+		this.nombre = nombre ;
 		this.cedula = cedula;
 		this.edad = edad;
 		this.telefono = telefono;
@@ -25,6 +27,57 @@ public class Usuario {
 		this.saldo = saldo;
 	}
 	
+//accessors
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public String getCedula() {
+		return cedula;
+	}
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public double getPresupuesto() {
+		return presupuesto;
+	}
+	public void setPresupuesto(double presupuesto) {
+		this.presupuesto = presupuesto;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+//methods
 	public void agregarReserva(Reserva e1)
 	{
 		Reserva nuevaReserva = e1;
@@ -50,6 +103,11 @@ public class Usuario {
 		}
 		
 	}
+
+	
+	
+
+	
 	
 	
 	
