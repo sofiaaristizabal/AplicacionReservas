@@ -6,7 +6,7 @@ public class Usuario {
 	private String nombre;
 	private int cedula;
 	private int edad;
-	private int telefono;
+	private String telefono;
 	private String correo;
 	private double presupuesto;
 	private double saldo;
@@ -14,7 +14,7 @@ public class Usuario {
 	
 	
 	
-	public Usuario(String nombre, int cedula, int edad, int telefono, String correo, double presupuesto, double saldo) 
+	public Usuario(String nombre, int cedula, int edad, String telefono, String correo, double presupuesto, double saldo) 
 	{
 		this.nombre = nombre;
 		this.cedula = cedula;

@@ -1,28 +1,64 @@
 package application;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Aplicacion {
-	
+
+//attributes	
 	private static Aplicacion app = new Aplicacion();
-	
     private Usuario[] usuarios;
     private LugarDeEvento[] lugaresEventos;
-    private EmpresaPrestadoraDeServicio[] empresasPrestadorasDeServicios;
+    private EmpresaPrestadoraServicio[] empresaPrestadoraServicio;
 
-    
+//constructors
     public static Aplicacion getAplicacion(){
     	return app;
     }
     
-    // Constructeur
     private Aplicacion() {
         //TODO Initialiser les tableaux ou effectuer d'autres initialisations nécessaires
     }
+ 
+//accessors
+    public Usuario[] getUsuarios() {
+		return usuarios;
+	}
 
-    // Méthode pour ajouter un utilisateur
-    public void agregarUsuario(String nombre, String apellido, String email, String telefono, String direccion, double latitud, double longitud) {
-        //TODO Implémentation à faire
+	public void setUsuarios(Usuario[] usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public LugarDeEvento[] getLugaresEventos() {
+		return lugaresEventos;
+	}
+
+	public void setLugaresEventos(LugarDeEvento[] lugaresEventos) {
+		this.lugaresEventos = lugaresEventos;
+	}
+
+	public EmpresaPrestadoraServicio[] getEmpresaPrestadoraServicio() {
+		return empresaPrestadoraServicio;
+	}
+
+	public void setEmpresaPrestadoraServicio(EmpresaPrestadoraServicio[] empresaPrestadoraServicio) {
+		this.empresaPrestadoraServicio = empresaPrestadoraServicio;
+	}
+
+
+//methods
+
+	//private methods
+	private static Usuario crearUsuario(String nombre, int cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
+		return new Usuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
+	}
+    
+
+	//public methods
+    public void agregarUsuario(String nombre, int cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
+    	int len = this.getUsuarios().length + 1;
+    	Usuario[] usuarios = Arrays.copyOf( this.getUsuarios(), len);;
+    	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     }
 
     // Méthode pour chercher un utilisateur
@@ -62,4 +98,5 @@ public class Aplicacion {
     public void filtrarPresupuesto() {
         //TODO Implémentation à faire
     }
+
 }
