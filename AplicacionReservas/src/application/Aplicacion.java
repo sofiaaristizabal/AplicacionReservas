@@ -49,27 +49,26 @@ public class Aplicacion {
 //methods
 
 	//private methods
-	private static Usuario crearUsuario(String nombre, int cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
+	private static Usuario crearUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
 		return new Usuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
 	}
     
 
 	//public methods
-    public void agregarUsuario(String nombre, int cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
+    public void agregarUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
     	int len = this.getUsuarios().length + 1;
     	Usuario[] usuarios = Arrays.copyOf( this.getUsuarios(), len);;
     	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     }
 
     // Méthode pour chercher un utilisateur
-    public int buscarUsuario(String email) {
-        //TODO Implémentation à faire
+    public int buscarUsuario(String nombre) {
         return -1; // Valeur de retour par défaut, à ajuster selon l'implémentation
     }
 
     // Méthode pour supprimer un utilisateur
     public void eliminarUsuario() {
-        // Implémentation à faire
+        int i =  this.buscarUsuario();
     }
 
     // Méthode pour créer une réservation

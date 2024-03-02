@@ -4,7 +4,7 @@ import java.util.*;
 public class Usuario {
 	
 	private String nombre;
-	private int cedula;
+	private String cedula;
 	private int edad;
 	private String telefono;
 	private String correo;
@@ -14,7 +14,7 @@ public class Usuario {
 	
 	
 	
-	public Usuario(String nombre, int cedula, int edad, String telefono, String correo, double presupuesto, double saldo) 
+	public Usuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) 
 	{
 		this.nombre = nombre;
 		this.cedula = cedula;
