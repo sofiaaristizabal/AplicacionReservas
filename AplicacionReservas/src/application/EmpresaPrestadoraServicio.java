@@ -1,3 +1,5 @@
+package application;
+
 
 public class EmpresaPrestadoraServicio {
     protected String nombre;

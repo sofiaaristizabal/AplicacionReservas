@@ -1,3 +1,5 @@
+package application;
+
 public class EmpresaDecoradora extends EmpresaPrestadoraServicio {
     private String[] estiloDecoracion;
     private String especialidad; // interiores, exteriores, interior y exterior

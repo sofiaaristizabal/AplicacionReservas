@@ -1,3 +1,5 @@
+package application;
+
 public class EmpresaCatering extends EmpresaPrestadoraServicio {
     private String[] menusDsiponibles;
     private String[] especialidadesCulinarias;
