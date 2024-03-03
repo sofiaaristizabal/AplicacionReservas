@@ -17,7 +17,9 @@ public class Aplicacion {
     }
     
     private Aplicacion() {
-        //TODO Initialiser les tableaux ou effectuer d'autres initialisations nécessaires
+    	usuarios = new Usuario[0];
+    	lugaresEventos = new LugarDeEvento[0];
+    	empresaPrestadoraServicio = new EmpresaPrestadoraServicio[0];
     }
  
 //accessors
@@ -62,6 +64,7 @@ public class Aplicacion {
     	int len = this.getUsuarios().length + 1;
     	Usuario[] usuarios = Arrays.copyOf( this.getUsuarios(), len);;
     	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
+    	this.setUsuarios(usuarios);
     }
     public int buscarUsuario(String cedula) {
         Usuario[] usuarios = this.getUsuarios();
@@ -74,8 +77,19 @@ public class Aplicacion {
         return (i < usuarios.length) ? i : -1;
     }
     public void eliminarUsuario(String cedula) {
-        int i =  this.buscarUsuario(cedula);
-        //TODO remove this.getUsuarios()[i] from this.getUsuarios()
+        int index = this.buscarUsuario(cedula);
+
+        if (index != -1) {
+            Usuario[] usuarios = this.getUsuarios();
+            // Create a new array without the user to be removed
+            Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
+            System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
+            System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
+            // Set the updated array to the class attribute
+            this.setUsuarios(updatedUsuarios);
+        } else {
+            System.out.println("Usuario no encontrado");
+        }
     }
 
     //reservas
@@ -84,29 +98,48 @@ public class Aplicacion {
         //TODO Implémentation à faire
         return null; // Valeur de retour par défaut, à ajuster selon l'implémentation
     }
-
+    
     //eventos
     public void agregarLugarEvento(String nombre, String ubicacion, double precioPorHora, int capacidad, String entorno, String descripcion, boolean incluyeSeguro) {
     	int len = this.getLugaresEventos().length + 1;
     	LugarDeEvento[] lugaresEventos = Arrays.copyOf( this.getLugaresEventos(), len);;
     	lugaresEventos[len] = crearLugareDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
+    	this.setLugaresEventos(lugaresEventos);
     }
-
-
-	// Méthode pour chercher un lieu d'événement
     public int buscarLugarEvento(String nombre) {
-        // Implémentation à faire
-        return -1; // Valeur de retour par défaut, à ajuster selon l'implémentation
+        LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
+        int i = 0;
+
+        while (i < lugaresEventos.length && !lugaresEventos[i].getNombre().equals(nombre)) {
+            i++;
+        }
+
+        return (i < lugaresEventos.length) ? i : -1;
+    }
+    public void eliminarLugarEvento(String nombre) {
+        int index = this.buscarLugarEvento(nombre);
+
+        if (index != -1) {
+            LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
+            // Create a new array without the location to be removed
+            LugarDeEvento[] updatedLugaresEventos = new LugarDeEvento[lugaresEventos.length - 1];
+            System.arraycopy(lugaresEventos, 0, updatedLugaresEventos, 0, index);
+            System.arraycopy(lugaresEventos, index + 1, updatedLugaresEventos, index, lugaresEventos.length - index - 1);
+            // Set the updated array to the class attribute
+            this.setLugaresEventos(updatedLugaresEventos);
+        } else {
+            System.out.println("Lugar de evento no encontrado");
+        }
     }
 
-    // Méthode pour supprimer un lieu d'événement
-    public void eliminarLugarEvento() {
-        //TODO Implémentation à faire
-    }
-
+    
+    
     // Méthode pour filtrer par budget
     public void filtrarPresupuesto() {
         //TODO Implémentation à faire
     }
 
+    
+
+    
 }
