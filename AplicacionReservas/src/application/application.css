@@ -1,1 +1,42 @@
+
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.root{
+	
+	-fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-background-color: "beige";
+}
+
+.label{
+	
+	-fx-font-size:20;
+	-fx-font-family:"Lucida Console";
+	-fx-text-fill:"DarkCyan";
+	-fx-alignment:center;
+}
+
+.button {
+    -fx-background-color: "SeaShell"; 
+    -fx-font-family:"Lucida Console";
+    -fx-text-fill: DarkCyan;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 15px;
+    -fx-border-radius: 5px;
+}
+
+
+#nameLabel{
+	
+	-fx-font-size:30;
+	-fx-font-family:"Lucida Console";
+	-fx-text-fill:"beige";
+}
+
+.dialogPane{
+	
+	-fx-font-size:50;
+	-fx-font-family:"ItalicT";
+	-fx-text-fill:"Blak";
+	-fx-alignment:center;
+}
+
