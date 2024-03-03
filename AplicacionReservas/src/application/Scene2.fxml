@@ -16,6 +16,6 @@
       <Button fx:id="infoUsuario" layoutX="64.0" layoutY="286.0" mnemonicParsing="false" text="Informacion Usuario " />
       <Button fx:id="verLugares" layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#verLugares" text="Buscar lugares de eventos " />
 		<Label fx:id="nameLabel" layoutX="-1.0" layoutY="50.0" prefHeight="21.0" prefWidth="600.0" text="  Bienvenido a TuEvento" textAlignment="CENTER" />
-      <Label layoutX="41.0" layoutY="132.0" prefHeight="89.0" prefWidth="297.0" text="Has de tu evento una experiencia inolvidable" />
+      <Label layoutX="46.0" layoutY="132.0" prefHeight="114.0" prefWidth="297.0" text="Has de tu evento una experiencia inolvidable" />
 	</children>
 </AnchorPane>
