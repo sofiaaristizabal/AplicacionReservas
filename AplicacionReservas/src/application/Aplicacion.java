@@ -24,7 +24,6 @@ public class Aplicacion {
     public Usuario[] getUsuarios() {
 		return usuarios;
 	}
-
 	public void setUsuarios(Usuario[] usuarios) {
 		this.usuarios = usuarios;
 	}
@@ -32,7 +31,6 @@ public class Aplicacion {
 	public LugarDeEvento[] getLugaresEventos() {
 		return lugaresEventos;
 	}
-
 	public void setLugaresEventos(LugarDeEvento[] lugaresEventos) {
 		this.lugaresEventos = lugaresEventos;
 	}
@@ -40,7 +38,6 @@ public class Aplicacion {
 	public EmpresaPrestadoraServicio[] getEmpresaPrestadoraServicio() {
 		return empresaPrestadoraServicio;
 	}
-
 	public void setEmpresaPrestadoraServicio(EmpresaPrestadoraServicio[] empresaPrestadoraServicio) {
 		this.empresaPrestadoraServicio = empresaPrestadoraServicio;
 	}
@@ -52,15 +49,20 @@ public class Aplicacion {
 	private static Usuario crearUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
 		return new Usuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
 	}
+	
+	private LugarDeEvento crearLugareDeEvento(String nombre, String ubicacion, double precioPorHora, int capacidad, String entorno, String descripcion, boolean incluyeSeguro) {
+		return new LugarDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
+	}
     
 
 	//public methods
+	
+	//usuarios
     public void agregarUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
     	int len = this.getUsuarios().length + 1;
     	Usuario[] usuarios = Arrays.copyOf( this.getUsuarios(), len);;
     	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     }
-
     public int buscarUsuario(String cedula) {
         Usuario[] usuarios = this.getUsuarios();
         int i = 0;
@@ -69,25 +71,29 @@ public class Aplicacion {
             i++;
         }
 
-        return (i < usuarios.length) ? i : -1; // Retourne l'index si l'utilisateur est trouvé, sinon -1
+        return (i < usuarios.length) ? i : -1;
     }
-    // Méthode pour supprimer un utilisateur
-    public void eliminarUsuario() {
-        int i =  this.buscarUsuario();
+    public void eliminarUsuario(String cedula) {
+        int i =  this.buscarUsuario(cedula);
+        //TODO remove this.getUsuarios()[i] from this.getUsuarios()
     }
 
+    //reservas
     // Méthode pour créer une réservation
     public Reserva crearReserva(Date fecha, int cantidadPersonas, Contrato[] contratos) {
         //TODO Implémentation à faire
         return null; // Valeur de retour par défaut, à ajuster selon l'implémentation
     }
 
-    // Méthode pour ajouter un lieu d'événement
-    public void agregarLugarEvento(String nombre, String direccion, double latitud, int capacidad, String tipo, String descripcion, boolean disponibilidad) {
-        //TODO Implémentation à faire
+    //eventos
+    public void agregarLugarEvento(String nombre, String ubicacion, double precioPorHora, int capacidad, String entorno, String descripcion, boolean incluyeSeguro) {
+    	int len = this.getLugaresEventos().length + 1;
+    	LugarDeEvento[] lugaresEventos = Arrays.copyOf( this.getLugaresEventos(), len);;
+    	lugaresEventos[len] = crearLugareDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
     }
 
-    // Méthode pour chercher un lieu d'événement
+
+	// Méthode pour chercher un lieu d'événement
     public int buscarLugarEvento(String nombre) {
         // Implémentation à faire
         return -1; // Valeur de retour par défaut, à ajuster selon l'implémentation
