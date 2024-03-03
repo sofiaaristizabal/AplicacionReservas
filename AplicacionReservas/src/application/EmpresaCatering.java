@@ -6,8 +6,8 @@ public class EmpresaCatering extends EmpresaPrestadoraServicio {
     private int disponibilidadPersonal;
 
     // Constructor
-    public EmpresaCatering(String nombre, String codigo,TarifasOfrecidas tarifasOfrecidas, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal) {
-        super(nombre, codigo, tarifasOfrecidas);
+    public EmpresaCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal) {
+        super(nombre, codigo, basico, premium, deluxe);
         this.menusDsiponibles = menusDsiponibles;
         this.especialidadesCulinarias = especialidadesCulinarias;
         this.disponibilidadPersonal = disponibilidadPersonal;

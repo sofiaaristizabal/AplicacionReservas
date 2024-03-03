@@ -7,8 +7,8 @@ public class EmpresaDecoradora extends EmpresaPrestadoraServicio {
     private boolean utilizaPlantas;
 
     // Constructor
-    public EmpresaDecoradora(String nombre, String codigo, boolean utilizaPlantas,TarifasOfrecidas tarifasOfrecidas, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario) {
-        super(nombre, codigo, tarifasOfrecidas);
+    public EmpresaDecoradora(String nombre, String codigo, boolean utilizaPlantas, double basico, double premium, double deluxe, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario) {
+        super(nombre, codigo, basico, premium, deluxe);
         this.estiloDecoracion = estiloDecoracion;
         this.especialidad = especialidad;
         this.alquilerMobiliario = alquilerMobiliario;
