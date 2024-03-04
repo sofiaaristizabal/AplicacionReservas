@@ -9,9 +9,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerScene2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerScene2">
 	<children>
-      <ImageView blendMode="DARKEN" fitHeight="105.0" fitWidth="195.0" layoutX="355.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="OVERLAY" fitHeight="165.0" fitWidth="275.0" layoutX="214.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Pictures/salones-para-eventos.png" />
          </image>
@@ -19,13 +19,14 @@
             <BoxBlur />
          </effect>
       </ImageView>
-      <Button fx:id="infoUsuario" layoutX="64.0" layoutY="286.0" mnemonicParsing="false" text="Informacion Usuario " />
-      <Button fx:id="verLugares" layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#verLugares" text="Buscar lugares de eventos " />
+      <Button fx:id="infoUsuario" layoutX="14.0" layoutY="333.0" mnemonicParsing="false" text="Informacion Usuario " />
+      <Button fx:id="verLugares" layoutX="201.0" layoutY="333.0" mnemonicParsing="false" onAction="#verLugares" text="Buscar lugares de eventos " />
 		<Label fx:id="nameLabel" alignment="CENTER" layoutX="-1.0" layoutY="50.0" prefHeight="21.0" prefWidth="600.0" text="  Bienvenido a TuEvento" textAlignment="CENTER">
          <font>
             <Font size="19.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="91.0" layoutY="174.0" prefHeight="21.0" prefWidth="205.0" text="HAZLO INOLVIDABLE..." />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddf5b77d" height="47.0" layoutX="-8.0" layoutY="41.0" stroke="TRANSPARENT" strokeType="INSIDE" width="613.0" />
+      <Label alignment="CENTER" layoutX="85.0" layoutY="185.0" prefHeight="21.0" prefWidth="520.0" text="HAZLO INOLVIDABLE..." />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddf5b77d" height="47.0" layoutX="-11.0" layoutY="41.0" stroke="TRANSPARENT" strokeType="INSIDE" width="706.0" />
+      <Button layoutX="471.0" layoutY="333.0" mnemonicParsing="false" text="Ver empresas de servicios" />
 	</children>
 </AnchorPane>

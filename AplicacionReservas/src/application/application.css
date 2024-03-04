@@ -9,7 +9,7 @@
 
 .label{
 	
-	-fx-font-size:20;
+	-fx-font-size:15;
 	-fx-font-family:"Lucida Console";
 	-fx-text-fill:"DarkCyan";
 	-fx-alignment:center;
@@ -19,7 +19,7 @@
     -fx-background-color: "SeaShell"; 
     -fx-font-family:"Lucida Console";
     -fx-text-fill: DarkCyan;
-    -fx-font-size: 14px;
+    -fx-font-size: 11px;
     -fx-padding: 8px 15px;
     -fx-border-radius: 10px;
     -fx-border-color: "DarkSlateGray";
@@ -55,6 +55,17 @@
 
 #PrecioPorHora{
 	-fx-font-size:15;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+}
+
+#variableLabel{
+	-fx-font-size:12;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+}
+#label1{
+	-fx-font-size:12;
 	-fx-font-family:"Lucida Sans";
 	-fx-text-fill:"DarkCyan";
 }
