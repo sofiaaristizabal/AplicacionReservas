@@ -136,8 +136,7 @@ public class Aplicacion {
     }
     
     
-    public void eliminarLugarEvento(String nombre) {
-        int index = this.buscarLugarEvento(nombre);
+
 
     public void eliminarLugarEvento(String nombre) throws LugarNotFoundException {
         int index = this.buscarIndexLugarEvento(nombre);
