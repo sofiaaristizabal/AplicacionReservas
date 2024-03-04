@@ -144,5 +144,12 @@ public class Aplicacion {
         // Set the updated array to the class attribute
         this.setLugaresEventos(updatedLugaresEventos);
     }
-
+    
+    //empresas
+    public void agregarEmpresa(EmpresaPrestadoraServicio empresaPrestadoraServicio) {
+    	int len = this.getEmpresaPrestadoraServicio().length + 1;
+    	EmpresaPrestadoraServicio[] empresaPrestadoraServicioArr = Arrays.copyOf(this.getEmpresaPrestadoraServicio(), len);;
+    	empresaPrestadoraServicioArr[len-1] = empresaPrestadoraServicio;
+    	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicioArr);
+    }
 }
