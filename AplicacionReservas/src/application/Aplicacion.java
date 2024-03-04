@@ -123,17 +123,6 @@ public class Aplicacion {
     	int i = this.buscarIndexLugarEvento(nombre);
     	return this.getLugaresEventos()[i];
     }
-    
-    public LugarDeEvento buscarLugarDeEvento(String nombre) {
-        LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
-        int i = 0;
-
-        while (i < lugaresEventos.length && !lugaresEventos[i].getNombre().equals(nombre)) {
-            i++;
-        }
-
-        return (i < lugaresEventos.length) ? lugaresEventos[i]: null;
-    }
     public void eliminarLugarEvento(String nombre) throws LugarNotFoundException {
         int index = this.buscarIndexLugarEvento(nombre);
 
