@@ -98,20 +98,16 @@ public class Aplicacion {
     	int i = this.buscarUsuarioIndex(cedula);
         return this.getUsuarios()[i];
     }
-    public void eliminarUsuario(String cedula) {
+    public void eliminarUsuario(String cedula) throws UsuarioNotFoundException {
         int index = this.buscarUsuarioIndex(cedula);
 
-        if (index != -1) {
-            Usuario[] usuarios = this.getUsuarios();
-            // Create a new array without the user to be removed
-            Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
-            System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
-            System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
-            // Set the updated array to the class attribute
-            this.setUsuarios(updatedUsuarios);
-        } else {
-            System.out.println("Usuario no encontrado");
-        }
+        Usuario[] usuarios = this.getUsuarios();
+        // Create a new array without the user to be removed
+        Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
+        System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
+        System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
+        // Set the updated array to the class attribute
+        this.setUsuarios(updatedUsuarios);
     }
     /*
     public ReservaLugar createReservaLugar(String codigo, LugarDeEvento lugarEvento,int cantidadPersonas) {
