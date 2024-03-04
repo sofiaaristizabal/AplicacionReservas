@@ -22,10 +22,6 @@ public class ControllerScene3 implements Initializable{
 	
 	private LugarDeEvento[] lugaresEventos = app.getLugaresEventos();
 	private String[] nombres;
-	private int[] capacidades;
-	private String[] ubicaciones;
-	private double[] preciosPorHora;
-	private String nombreActual;
 	
 	public void obtenerNombres() {
 		nombres = new String[lugaresEventos.length];
@@ -34,26 +30,7 @@ public class ControllerScene3 implements Initializable{
 		}
 	}
 	
-	public void obtenerCpacidades() {
-		capacidades = new int[lugaresEventos.length];
-		for(int i = 0; i < lugaresEventos.length; i++) {
-			capacidades[i] = lugaresEventos[i].getCapacidad();
-		}
-	}
 	
-	public void obtenerUbicaciones() {
-		ubicaciones = new String[lugaresEventos.length];
-		for(int i = 0; i < lugaresEventos.length; i++) {
-			ubicaciones[i] = lugaresEventos[i].getUbicacion();
-		}
-	}
-	
-	public void obtenerPreciosPorHora() {
-		preciosPorHora = new double[lugaresEventos.length];
-		for(int i = 0; i < lugaresEventos.length; i++) {
-			preciosPorHora[i] = lugaresEventos[i].getPrecioPorHora();
-		}
-	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -67,11 +44,9 @@ public class ControllerScene3 implements Initializable{
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 				
-				myListView.getSelectionModel().getSelectedItem();
-				
-				capacidad.setText(app.buscarLugarEvento(myListView.getSelectionModel().getSelectedItem()).);
-				ubicacion.setText("");
-				PrecioPorHora.setText("");
+				capacidad.setText(String.valueOf(app.buscarLugarDeEvento(myListView.getSelectionModel().getSelectedItem()).getCapacidad()));
+				ubicacion.setText(app.buscarLugarDeEvento(myListView.getSelectionModel().getSelectedItem()).getUbicacion());
+				PrecioPorHora.setText(String.valueOf(app.buscarLugarDeEvento(myListView.getSelectionModel().getSelectedItem()).getPrecioPorHora()));
 				
 			}
 			
