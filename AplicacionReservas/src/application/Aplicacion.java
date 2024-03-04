@@ -93,10 +93,8 @@ public class Aplicacion {
     }
 
     //reservas
-    // Méthode pour créer une réservation
-    public Reserva crearReserva(Date fecha, int cantidadPersonas, Contrato[] contratos) {
-        //TODO Implémentation à faire
-        return null; // Valeur de retour par défaut, à ajuster selon l'implémentation
+    public Reserva crearReserva() {
+        return null;
     }
     
     //eventos
@@ -136,7 +134,6 @@ public class Aplicacion {
     
     // Méthode pour filtrer par budget
     public void filtrarPresupuesto() {
-        //TODO Implémentation à faire
     }
 
     
