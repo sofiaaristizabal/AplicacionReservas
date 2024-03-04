@@ -101,13 +101,13 @@ public class Aplicacion {
     public void eliminarUsuario(String cedula) throws UsuarioNotFoundException {
         int index = this.buscarUsuarioIndex(cedula);
 
-        Usuario[] usuarios = this.getUsuarios();
-        // Create a new array without the user to be removed
-        Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
-        System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
-        System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
-        // Set the updated array to the class attribute
-        this.setUsuarios(updatedUsuarios);
+            Usuario[] usuarios = this.getUsuarios();
+            // Create a new array without the user to be removed
+            Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
+            System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
+            System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
+            // Set the updated array to the class attribute
+            this.setUsuarios(updatedUsuarios);
     }
     /*
     public ReservaLugar createReservaLugar(String codigo, LugarDeEvento lugarEvento,int cantidadPersonas) {
@@ -142,6 +142,48 @@ public class Aplicacion {
     }
     
     //empresas
+    public void agregarEmpSonido(String nombre, String codigo, String[] tipoGenero, double basico, double premium, double deluxe, String[] marcaEquipo)
+    {
+
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaSonido(nombre, codigo, tipoGenero, basico, premium, deluxe, marcaEquipo);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
+    }
+
+    public void agregarEmpLimpieza(String nombre,String cuandoLimpia, String codigo, double basico, double premium, double deluxe)
+    {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaLimpieza(nombre,cuandoLimpia, codigo, basico, premium, deluxe);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+    }
+
+    public void agregarEmpCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal)
+    {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaCatering(nombre, codigo, basico, premium, deluxe, menusDsiponibles, especialidadesCulinarias, disponibilidadPersonal);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+    }
+
+    public void agregarEmpDecoradora(String nombre, String codigo, boolean utilizaPlantas, double basico, double premium, double deluxe, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario)
+    {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaDecoradora(nombre, codigo, utilizaPlantas, basico, premium, deluxe, estiloDecoracion, especialidad, alquilerMobiliario);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+    }
     public void agregarEmpresa(EmpresaPrestadoraServicio empresaPrestadoraServicio) {
     	int len = this.getEmpresaPrestadoraServicio().length + 1;
     	EmpresaPrestadoraServicio[] empresaPrestadoraServicioArr = Arrays.copyOf(this.getEmpresaPrestadoraServicio(), len);;
