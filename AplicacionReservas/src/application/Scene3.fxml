@@ -7,10 +7,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="listLabel" alignment="CENTER" layoutX="4.0" layoutY="32.0" prefHeight="21.0" prefWidth="594.0" text="Lugares de Eventos recomendados">
+      <Label fx:id="capacidad" alignment="CENTER" layoutX="3.0" layoutY="24.0" prefHeight="21.0" prefWidth="594.0" text="Lugares de Eventos recomendados">
          <font>
-            <Font name="Verdana" size="24.0" />
+            <Font name="Verdana" size="15.0" />
          </font></Label>
-      <ListView fx:id="myListView" layoutX="180.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="myListView" layoutX="200.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="ubicacion" alignment="CENTER" layoutX="1.0" layoutY="62.0" prefHeight="21.0" prefWidth="600.0" text="ubicacion" />
+      <Label fx:id="PrecioPorHora" alignment="CENTER" layoutX="-1.0" layoutY="105.0" prefHeight="21.0" prefWidth="600.0" text="PrecioPorHora" />
    </children>
 </AnchorPane>

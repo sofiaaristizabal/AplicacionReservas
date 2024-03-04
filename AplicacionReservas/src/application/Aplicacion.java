@@ -101,7 +101,7 @@ public class Aplicacion {
     public void agregarLugarEvento(String nombre, String ubicacion, double precioPorHora, int capacidad, String entorno, String descripcion, boolean incluyeSeguro) {
     	int len = this.getLugaresEventos().length + 1;
     	LugarDeEvento[] lugaresEventos = Arrays.copyOf( this.getLugaresEventos(), len);;
-    	lugaresEventos[len] = crearLugareDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
+    	lugaresEventos[len-1] = crearLugareDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
     	this.setLugaresEventos(lugaresEventos);
     }
     public int buscarLugarEvento(String nombre) {
