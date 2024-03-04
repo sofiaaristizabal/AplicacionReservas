@@ -107,9 +107,24 @@ public class Aplicacion {
         }
     }
 
-    //reservas
-    public Reserva crearReserva() {
-        return null;
+    public void agregarReservaUsuario(String cedula, String tipo, String arg1, String arg2, Date arg3, int arg4, String arg5) throws TipoReservaDoesNotExistException {
+    	int index = this.buscarUsuario(cedula);
+    	if (index != -1) {
+            Usuario usuario = this.getUsuarios()[index];
+            Reserva r;
+            switch (tipo) {
+            	case "lugar":
+            		r = new ReservaLugar(arg1, arg2, arg3, arg4);
+            		usuario.agregarReserva(r);
+            	case "visita":
+            		r = new ReservaVisita(arg1, arg2, arg3, arg4, arg5);
+            		usuario.agregarReserva(r);
+            	default:
+            		throw new TipoReservaDoesNotExistException(tipo);
+            }
+        } else {
+            System.out.println("Usuario no encontrado");
+        }
     }
     
     //eventos
@@ -135,13 +150,4 @@ public class Aplicacion {
         this.setLugaresEventos(updatedLugaresEventos);
     }
 
-    
-    
-    // Méthode pour filtrer par budget
-    public void filtrarPresupuesto() {
-    }
-
-    
-
-    
 }
