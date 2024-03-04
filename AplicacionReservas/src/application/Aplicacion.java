@@ -134,10 +134,6 @@ public class Aplicacion {
 
         return (i < lugaresEventos.length) ? lugaresEventos[i]: null;
     }
-    
-    
-
-
     public void eliminarLugarEvento(String nombre) throws LugarNotFoundException {
         int index = this.buscarIndexLugarEvento(nombre);
 
