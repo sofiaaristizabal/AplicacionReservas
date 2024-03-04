@@ -55,6 +55,21 @@ public class Aplicacion {
 	private LugarDeEvento crearLugareDeEvento(String nombre, String ubicacion, double precioPorHora, int capacidad, String entorno, String descripcion, boolean incluyeSeguro) {
 		return new LugarDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
 	}
+	private int buscarIndexLugarEvento(String nombre) throws LugarNotFoundException {
+        LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
+        int i = 0;
+
+        while (i < lugaresEventos.length && !lugaresEventos[i].getNombre().equals(nombre)) {
+            i++;
+        }
+
+        if (i < lugaresEventos.length) {
+			return i;
+        }
+		else {
+			throw new LugarNotFoundException(nombre);
+		}
+    }
     
 
 	//public methods
@@ -104,16 +119,11 @@ public class Aplicacion {
     	lugaresEventos[len-1] = crearLugareDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
     	this.setLugaresEventos(lugaresEventos);
     }
-    public int buscarLugarEvento(String nombre) {
-        LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
-        int i = 0;
-
-        while (i < lugaresEventos.length && !lugaresEventos[i].getNombre().equals(nombre)) {
-            i++;
-        }
-
-        return (i < lugaresEventos.length) ? i : -1;
+    public LugarDeEvento buscarLugarEvento(String nombre) throws LugarNotFoundException {
+    	int i = this.buscarIndexLugarEvento(nombre);
+    	return this.getLugaresEventos()[i];
     }
+<<<<<<< HEAD
     
     public LugarDeEvento buscarLugarDeEvento(String nombre) {
         LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
@@ -127,18 +137,18 @@ public class Aplicacion {
     }
     public void eliminarLugarEvento(String nombre) {
         int index = this.buscarLugarEvento(nombre);
+=======
+    public void eliminarLugarEvento(String nombre) throws LugarNotFoundException {
+        int index = this.buscarIndexLugarEvento(nombre);
+>>>>>>> branch 'main' of https://github.com/sofiaaristizabal/AplicacionReservas.git
 
-        if (index != -1) {
-            LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
-            // Create a new array without the location to be removed
-            LugarDeEvento[] updatedLugaresEventos = new LugarDeEvento[lugaresEventos.length - 1];
-            System.arraycopy(lugaresEventos, 0, updatedLugaresEventos, 0, index);
-            System.arraycopy(lugaresEventos, index + 1, updatedLugaresEventos, index, lugaresEventos.length - index - 1);
-            // Set the updated array to the class attribute
-            this.setLugaresEventos(updatedLugaresEventos);
-        } else {
-            System.out.println("Lugar de evento no encontrado");
-        }
+        LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
+        // Create a new array without the location to be removed
+        LugarDeEvento[] updatedLugaresEventos = new LugarDeEvento[lugaresEventos.length - 1];
+        System.arraycopy(lugaresEventos, 0, updatedLugaresEventos, 0, index);
+        System.arraycopy(lugaresEventos, index + 1, updatedLugaresEventos, index, lugaresEventos.length - index - 1);
+        // Set the updated array to the class attribute
+        this.setLugaresEventos(updatedLugaresEventos);
     }
 
     
