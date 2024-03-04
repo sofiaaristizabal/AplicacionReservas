@@ -81,7 +81,7 @@ public class Aplicacion {
     	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     	this.setUsuarios(usuarios);
     }
-    public int buscarUsuario(String cedula) {
+    public int buscarUsuarioIndex(String cedula) throws UsuarioNotFoundException {
         Usuario[] usuarios = this.getUsuarios();
         int i = 0;
 
@@ -89,10 +89,17 @@ public class Aplicacion {
             i++;
         }
 
-        return (i < usuarios.length) ? i : -1;
+        if (i < usuarios.length)
+			return i;
+		else
+			throw new UsuarioNotFoundException(cedula);
+    }
+    public Usuario buscarUsuario(String cedula) throws UsuarioNotFoundException {
+    	int i = this.buscarUsuarioIndex(cedula);
+        return this.getUsuarios()[i];
     }
     public void eliminarUsuario(String cedula) {
-        int index = this.buscarUsuario(cedula);
+        int index = this.buscarUsuarioIndex(cedula);
 
         if (index != -1) {
             Usuario[] usuarios = this.getUsuarios();
@@ -106,25 +113,13 @@ public class Aplicacion {
             System.out.println("Usuario no encontrado");
         }
     }
-
-    public void agregarReservaUsuario(String cedula, String tipo, String arg1, String arg2, Date arg3, int arg4, String arg5) throws TipoReservaDoesNotExistException {
-    	int index = this.buscarUsuario(cedula);
-    	if (index != -1) {
-            Usuario usuario = this.getUsuarios()[index];
-            Reserva r;
-            switch (tipo) {
-            	case "lugar":
-            		r = new ReservaLugar(arg1, arg2, arg3, arg4);
-            		usuario.agregarReserva(r);
-            	case "visita":
-            		r = new ReservaVisita(arg1, arg2, arg3, arg4, arg5);
-            		usuario.agregarReserva(r);
-            	default:
-            		throw new TipoReservaDoesNotExistException(tipo);
-            }
-        } else {
-            System.out.println("Usuario no encontrado");
-        }
+    
+    public ReservaLugar createReservaLugar(String codigo, LugarDeEvento lugarEvento,int cantidadPersonas) {
+    	return new ReservaLugar(codigo, lugarEvento, new Date(), cantidadPersonas);
+    }
+    
+    public void agregarReservaUsuario(Usuario usuario, Reserva r) {
+    		usuario.agregarReserva(r);
     }
     
     //eventos
