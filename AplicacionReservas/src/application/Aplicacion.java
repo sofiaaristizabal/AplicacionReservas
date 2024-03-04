@@ -123,7 +123,6 @@ public class Aplicacion {
     	int i = this.buscarIndexLugarEvento(nombre);
     	return this.getLugaresEventos()[i];
     }
-<<<<<<< HEAD
     
     public LugarDeEvento buscarLugarDeEvento(String nombre) {
         LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
@@ -135,12 +134,13 @@ public class Aplicacion {
 
         return (i < lugaresEventos.length) ? lugaresEventos[i]: null;
     }
+    
+    
     public void eliminarLugarEvento(String nombre) {
         int index = this.buscarLugarEvento(nombre);
-=======
+
     public void eliminarLugarEvento(String nombre) throws LugarNotFoundException {
         int index = this.buscarIndexLugarEvento(nombre);
->>>>>>> branch 'main' of https://github.com/sofiaaristizabal/AplicacionReservas.git
 
         LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
         // Create a new array without the location to be removed
