@@ -27,9 +27,9 @@
 
 #nameLabel{
 	
-	-fx-font-size:30;
+	-fx-font-size:25;
 	-fx-font-family:"Lucida Console";
-	-fx-text-fill:"beige";
+	-fx-text-fill:"DarkCyan";
 }
 
 .dialogPane{

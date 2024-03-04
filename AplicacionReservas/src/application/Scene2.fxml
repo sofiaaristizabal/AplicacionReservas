@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerScene2">
 	<children>
@@ -15,7 +16,10 @@
       </ImageView>
       <Button fx:id="infoUsuario" layoutX="64.0" layoutY="286.0" mnemonicParsing="false" text="Informacion Usuario " />
       <Button fx:id="verLugares" layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#verLugares" text="Buscar lugares de eventos " />
-		<Label fx:id="nameLabel" layoutX="-1.0" layoutY="50.0" prefHeight="21.0" prefWidth="600.0" text="  Bienvenido a TuEvento" textAlignment="CENTER" />
-      <Label layoutX="46.0" layoutY="132.0" prefHeight="114.0" prefWidth="297.0" text="Has de tu evento una experiencia inolvidable" />
+		<Label fx:id="nameLabel" alignment="CENTER" layoutX="-1.0" layoutY="50.0" prefHeight="21.0" prefWidth="600.0" text="  Bienvenido a TuEvento" textAlignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="117.0" layoutY="174.0" text="hazlo inolvidable " />
 	</children>
 </AnchorPane>

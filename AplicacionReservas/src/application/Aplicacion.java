@@ -116,6 +116,17 @@ public class Aplicacion {
 
         return (i < lugaresEventos.length) ? i : -1;
     }
+    
+    public LugarDeEvento buscarLugarDeEvento(String nombre) {
+        LugarDeEvento[] lugaresEventos = this.getLugaresEventos();
+        int i = 0;
+
+        while (i < lugaresEventos.length && !lugaresEventos[i].getNombre().equals(nombre)) {
+            i++;
+        }
+
+        return (i < lugaresEventos.length) ? lugaresEventos[i]: null;
+    }
     public void eliminarLugarEvento(String nombre) {
         int index = this.buscarLugarEvento(nombre);
 
