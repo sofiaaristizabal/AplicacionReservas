@@ -150,7 +150,45 @@ public class Aplicacion {
         this.setLugaresEventos(updatedLugaresEventos);
     }
 
-    
+    public void agregarEmpSonido(String nombre, String codigo, String[] tipoGenero, double basico, double premium, double deluxe, String[] marcaEquipo)
+{
+
+int len = this.empresaPrestadoraServicio().length + 1;
+    	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+    	empresaPrestadoraServicio[len-1] = EmpresaSonido(String nombre, String codigo, String[] tipoGenero, double basico, double premium, double deluxe, String[] marcaEquipo);
+    	this.empresaPrestadoraServicio(empresaPrestadoraServicio);
+
+}
+
+public void agregarEmpLimpieza(String nombre,String cuandoLimpia, String codigo, double basico, double premium, double deluxe)
+{
+int len = this.empresaPrestadoraServicio().length + 1;
+
+    	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+    	empresaPrestadoraServicio[len-1] = EmpresaLimpieza(String nombre,String cuandoLimpia, String codigo, double basico, double premium, double deluxe);
+    	this.empresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+}
+
+public void agregarEmpCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal)
+{
+int len = this.empresaPrestadoraServicio().length + 1;
+
+    	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+    	empresaPrestadoraServicio[len-1] = EmpresaCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal);
+    	this.empresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+}
+
+public void agregarEmpDecoradora(String nombre, String codigo, boolean utilizaPlantas, double basico, double premium, double deluxe, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario)
+{
+int len = this.empresaPrestadoraServicio().length + 1;
+
+    	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+    	empresaPrestadoraServicio[len-1] = EmpresaDecoradora(String nombre, String codigo, boolean utilizaPlantas, double basico, double premium, double deluxe, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario);
+    	this.empresaPrestadoraServicio(empresaPrestadoraServicio);
     
     // Méthode pour filtrer par budget
     public void filtrarPresupuesto(String cedula, double nuevoP) {
