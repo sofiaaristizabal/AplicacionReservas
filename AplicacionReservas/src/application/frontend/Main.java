@@ -1,4 +1,4 @@
-package application;
+package application.frontend;
 
 import java.util.*;
 

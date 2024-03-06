@@ -7,6 +7,7 @@ import application.backend.LugarDeEvento;
 public class ReservaLugar extends Reserva {
 	
 	private int cantidadPersonas;
+	
 
 	public ReservaLugar(LugarDeEvento lugarEvento, LocalDate fechaReserva,
 			int cantidadPersonas) {
