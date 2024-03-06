@@ -181,7 +181,5 @@ public class Aplicacion {
         	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
         	empresaPrestadoraServicio[len-1] = new EmpresaDecoradora(nombre, codigo, utilizaPlantas, basico, premium, deluxe, estiloDecoracion, especialidad, alquilerMobiliario);
         	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
-
-
     }
 }
