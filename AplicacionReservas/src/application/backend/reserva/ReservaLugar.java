@@ -1,6 +1,8 @@
-package application;
+package application.backend.reserva;
 import java.time.LocalDate;
 import java.util.Date;
+
+import application.backend.LugarDeEvento;
 
 public class ReservaLugar extends Reserva {
 	

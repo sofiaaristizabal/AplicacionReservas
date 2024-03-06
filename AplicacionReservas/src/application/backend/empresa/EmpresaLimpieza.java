@@ -1,4 +1,4 @@
-package application.backend;
+package application.backend.empresa;
 
 public class EmpresaLimpieza extends EmpresaPrestadoraServicio {
 	private String cuandoLimpia;

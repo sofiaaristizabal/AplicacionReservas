@@ -3,6 +3,8 @@ package application.backend;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import application.backend.empresa.EmpresaPrestadoraServicio;
+
 public class Contrato {
 	
 	private EmpresaPrestadoraServicio empresa;

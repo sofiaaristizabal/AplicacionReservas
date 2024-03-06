@@ -1,7 +1,9 @@
-package application;
+package application.backend.reserva;
 
 import java.time.LocalDate;
 import java.util.*;
+
+import application.backend.LugarDeEvento;
 
 public abstract class Reserva {
 	
