@@ -21,6 +21,7 @@ public class Aplicacion {
     }
     
     private Aplicacion() {
+    	
     	usuarios = new Usuario[0];
     	lugaresEventos = new LugarDeEvento[0];
     	empresaPrestadoraServicio = new EmpresaPrestadoraServicio[0];
