@@ -148,38 +148,5 @@ public class Aplicacion {
         System.arraycopy(lugaresEventos, index + 1, updatedLugaresEventos, index, lugaresEventos.length - index - 1);
         // Set the updated array to the class attribute
         this.setLugaresEventos(updatedLugaresEventos);
-    }
-
-   public void agregarEmpSonido(String nombre, String codigo, String[] tipoGenero, double basico, double premium, double deluxe, String[] marcaEquipo) {
-	        int len = this.setEmpresaPrestadoraServicio().length + 1;
-	        EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf(this.getEmpresaPrestadoraServicio(), len);
-	        empresaPrestadoraServicio[len - 1] = new EmpresaSonido(nombre, codigo, tipoGenero, basico, premium, deluxe, marcaEquipo);
-	        this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
-	    }
-
-	    public void agregarEmpLimpieza(String nombre, String cuandoLimpia, String codigo, double basico, double premium, double deluxe) {
-	        int len = this.setEmpresaPrestadoraServicio().length + 1;
-	        EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf(this.getEmpresaPrestadoraServicio(), len);
-	        empresaPrestadoraServicio[len - 1] = new EmpresaLimpieza(nombre, cuandoLimpia, codigo, basico, premium, deluxe);
-	        this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
-	    }
-
-	    public void agregarEmpCatering(String nombre, String codigo, double basico, double premium, double deluxe, String[] menusDisponibles, String[] especialidadesCulinarias, int disponibilidadPersonal) {
-	        int len = this.setEmpresaPrestadoraServicio().length + 1;
-	        EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf(this.getEmpresaPrestadoraServicio(), len);
-	        empresaPrestadoraServicio[len - 1] = new EmpresaCatering(nombre, codigo, basico, premium, deluxe, menusDisponibles, especialidadesCulinarias, disponibilidadPersonal);
-	        this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
-	    }
-
-	    public void agregarEmpDecoradora(String nombre, String codigo, boolean utilizaPlantas, double basico, double premium, double deluxe, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario) {
-	        int len = this.setEmpresaPrestadoraServicio().length + 1;
-	        EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf(this.getEmpresaPrestadoraServicio(), len);
-	        empresaPrestadoraServicio[len - 1] = new EmpresaDecoradora(nombre, codigo, utilizaPlantas, basico, premium, deluxe, estiloDecoracion, especialidad, alquilerMobiliario);
-	        this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
-	    }
-
-
-    
-
-    
+    }   
 }
