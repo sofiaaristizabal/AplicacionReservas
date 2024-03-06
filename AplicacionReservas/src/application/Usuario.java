@@ -1,4 +1,5 @@
 package application;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Usuario {
@@ -78,9 +79,18 @@ public class Usuario {
 	}
 	
 //methods
-	public void agregarReserva(Reserva e1)
+	public void agregarReservaLugar(int cantidad, LugarDeEvento e, LocalDate fecha)
 	{
-		Reserva nuevaReserva = e1;
+		Reserva nuevaReserva = new ReservaLugar(e, fecha, cantidad);
+		
+		reservas = Arrays.copyOf(reservas, reservas.length+1);
+		reservas[reservas.length-1] = nuevaReserva;
+		
+	}
+	
+	public void agregarReservaVisita(String hora, LugarDeEvento e, LocalDate fecha)
+	{
+		Reserva nuevaReserva = new ReservaVisita(e, fecha, hora);
 		
 		reservas = Arrays.copyOf(reservas, reservas.length+1);
 		reservas[reservas.length-1] = nuevaReserva;

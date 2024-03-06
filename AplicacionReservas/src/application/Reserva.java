@@ -1,18 +1,19 @@
 package application;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public abstract class Reserva {
 	
 	protected String codigo;
 	//String de placeholder
-	protected String lugarEvento;
+	protected LugarDeEvento lugarEvento;
 	protected Date fechaGeneracion;
-	protected Date fechaReserva;
+	protected LocalDate fechaReserva;
 	
 	
-	public Reserva(String codigo, String lugarEvento, Date fechaReserva) {
-		this.codigo = codigo;
+	public Reserva(LugarDeEvento lugarEvento, LocalDate fechaReserva) {
+		
 		this.lugarEvento = lugarEvento;
 		this.fechaReserva = fechaReserva;
         generarFecha();
@@ -34,7 +35,7 @@ public abstract class Reserva {
 	}
 
 
-	public String getLugarEvento() {
+	public LugarDeEvento getLugarEvento() {
 		return lugarEvento;
 	}
 
@@ -44,7 +45,7 @@ public abstract class Reserva {
 	}
 
 
-	public Date getFechaReserva() {
+	public LocalDate getFechaReserva() {
 		return fechaReserva;
 	}
 

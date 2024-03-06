@@ -2,6 +2,7 @@ package application;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -39,9 +40,19 @@ public class ControllerScene4 implements Initializable{
 	private Aplicacion app = Aplicacion.getAplicacion();
 	private LugarDeEvento [] lugares = app.getLugaresEventos();
 	private String [] nombres;
+	private String cedula = "123456789";
+	private LocalDate myDate;
 	
-	public void generarReserva() {
+	public void generarReserva() throws NumberFormatException, LugarNotFoundException {
 		
+		if(tipoReserva.getValue().equals("Reserva de lugar")) {
+			
+			
+			app.crearReservaLugar(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
+		} else {
+			
+			app.crearReservaVisita(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+		}
 		
 	}
 	
@@ -88,7 +99,7 @@ public class ControllerScene4 implements Initializable{
 	
 	public void getDate(ActionEvent event) {
 		
-		LocalDate myDate = seleccionarFecha.getValue();
+	   myDate = seleccionarFecha.getValue();
 		
 		fecha.setText(myDate.toString());
 	}

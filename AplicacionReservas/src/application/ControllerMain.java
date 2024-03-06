@@ -19,6 +19,26 @@ public class ControllerMain {
 	@FXML
 	
 	TextField nameTextField;
+	
+	@FXML
+	TextField cedula;
+	
+	@FXML
+	TextField edad;
+	
+	@FXML
+	TextField telefono;
+	
+	@FXML
+	TextField correo;
+	
+	@FXML
+	TextField presupuesto;
+	
+	@FXML
+	TextField saldo;
+	
+	Aplicacion app = Aplicacion.getAplicacion();
 	Button login;
 	private Stage stage;
 	private Scene scene;
@@ -46,6 +66,8 @@ public class ControllerMain {
 		scene.getStylesheets().add(css);
 		stage.setScene(scene);
 		stage.show();
+		
+		app.agregarUsuario(nameTextField.getText(),cedula.getText(), Integer.parseInt(edad.getText()), telefono.getText(), correo.getText(), Double.parseDouble(saldo.getText()),Double.parseDouble(presupuesto.getText())  );
 	}
 	
 	public void displayImage() {

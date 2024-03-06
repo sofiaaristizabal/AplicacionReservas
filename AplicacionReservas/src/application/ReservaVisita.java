@@ -1,4 +1,5 @@
 package application;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ReservaVisita extends Reserva {
@@ -7,10 +8,9 @@ public class ReservaVisita extends Reserva {
 	private String hora;
 	
 	
-	public ReservaVisita(String codigo, String lugarEvento, Date fechaReserva,
-			double tiempoVisita, String hora) {
-		super(codigo, lugarEvento, fechaReserva);
-		this.tiempoVisita = tiempoVisita;
+	public ReservaVisita(LugarDeEvento lugarEvento, LocalDate fechaReserva,
+			 String hora) {
+		super( lugarEvento, fechaReserva);
 		this.hora = hora;
 	}
 	

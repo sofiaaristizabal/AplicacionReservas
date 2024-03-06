@@ -1,5 +1,6 @@
 package application;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -108,8 +109,18 @@ public class Aplicacion {
     }
 
     //reservas
-    public Reserva crearReserva() {
-        return null;
+    public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) {
+
+    	int i = buscarUsuario(cedula);
+    	
+    		usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
+    }
+    
+    public void crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) {
+
+    	int i = buscarUsuario(cedula);
+    	
+    		usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
     }
     
     //eventos
