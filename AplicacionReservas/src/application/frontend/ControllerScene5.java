@@ -89,9 +89,9 @@ public class ControllerScene5 implements Initializable{
 					e.printStackTrace();
 				}
 				
-				/*capacidad.setText("Capacidad: " + currentCapacidad);
+				capacidad.setText("Capacidad: " + currentCapacidad);
 				ubicacion.setText(currentUbicacion);
-				PrecioPorHora.setText("Precio por hora: "+ currentPrecioPorHora);*/
+				PrecioPorHora.setText("Precio por hora: "+ currentPrecioPorHora);
 				
 			}
 			
