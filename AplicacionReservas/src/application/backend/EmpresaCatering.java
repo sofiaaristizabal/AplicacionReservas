@@ -1,4 +1,4 @@
-package application;
+package application.backend;
 
 public class EmpresaCatering extends EmpresaPrestadoraServicio {
     private String[] menusDsiponibles;

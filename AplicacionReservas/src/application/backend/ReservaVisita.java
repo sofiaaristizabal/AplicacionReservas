@@ -1,4 +1,4 @@
-package application;
+package application.backend;
 import java.util.Date;
 
 public class ReservaVisita extends Reserva {

@@ -1,4 +1,4 @@
-package application;
+package application.backend;
 
 public class EmpresaDecoradora extends EmpresaPrestadoraServicio {
     private String[] estiloDecoracion;

@@ -1,9 +1,12 @@
-package application;
+package application.frontend;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.backend.Aplicacion;
+import application.backend.LugarDeEvento;
+import application.exceptions.LugarNotFoundException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;

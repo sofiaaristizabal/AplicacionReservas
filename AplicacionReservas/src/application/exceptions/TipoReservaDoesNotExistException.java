@@ -1,4 +1,4 @@
-package application;
+package application.exceptions;
 
 public class TipoReservaDoesNotExistException extends Exception {
 	public TipoReservaDoesNotExistException(String arg) {

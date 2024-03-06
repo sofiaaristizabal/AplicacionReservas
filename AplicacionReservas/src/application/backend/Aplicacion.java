@@ -1,7 +1,8 @@
-package application;
+package application.backend;
 
 import java.util.Arrays;
-import java.util.Date;
+import application.exceptions.LugarNotFoundException;
+import application.exceptions.UsuarioNotFoundException;
 
 public class Aplicacion {
 
