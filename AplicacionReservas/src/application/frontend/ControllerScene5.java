@@ -64,40 +64,7 @@ public class ControllerScene5 implements Initializable{
 	}
 	
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-        obtenerNombres();
-		
-		myListView.getItems().addAll(nombres);
-		
-		
-		myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-		@Override
-		public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-				
-				
-				try {
-					
-					//currentCapacidad = String.valueOf(app.buscarLugarEvento(myListView.getSelectionModel().getSelectedItem()).getCapacidad());
-					//currentBasico = app.buscar
-					
-					
-				} catch (LugarNotFoundException e) {
-					
-					e.printStackTrace();
-				}
-				
-				capacidad.setText("Capacidad: " + currentCapacidad);
-				ubicacion.setText(currentUbicacion);
-				PrecioPorHora.setText("Precio por hora: "+ currentPrecioPorHora);
-				
-			}
-			
-		});
-		
-	}
+	
 	
 	
 	public void smithcInicio(ActionEvent event) throws IOException {
@@ -131,6 +98,16 @@ public class ControllerScene5 implements Initializable{
 		scene.getStylesheets().add(css);
 		stage.setScene(scene);
 		stage.show();
+	}
+
+
+
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
