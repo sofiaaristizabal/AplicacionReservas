@@ -1,4 +1,4 @@
-package application;
+package application.backend;
 
 public class EmpresaSonido extends EmpresaPrestadoraServicio {
     private String[] tipoGenero;

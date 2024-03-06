@@ -1,10 +1,8 @@
-package application;
-import  application.backend.*;
-import application.exceptions.*;
+package application.backend;
 
-import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
+import application.exceptions.LugarNotFoundException;
+import application.exceptions.UsuarioNotFoundException;
 
 public class Aplicacion {
 
@@ -84,7 +82,7 @@ public class Aplicacion {
     	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     	this.setUsuarios(usuarios);
     }
-    public int buscarUsuario(String cedula) {
+    public int buscarUsuarioIndex(String cedula) throws UsuarioNotFoundException {
         Usuario[] usuarios = this.getUsuarios();
         int i = 0;
 
@@ -92,37 +90,32 @@ public class Aplicacion {
             i++;
         }
 
-        return (i < usuarios.length) ? i : -1;
+        if (i < usuarios.length)
+			return i;
+		else
+			throw new UsuarioNotFoundException(cedula);
     }
-    public void eliminarUsuario(String cedula) {
-        int index = this.buscarUsuario(cedula);
-
-        if (index != -1) {
-            Usuario[] usuarios = this.getUsuarios();
-            // Create a new array without the user to be removed
-            Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
-            System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
-            System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
-            // Set the updated array to the class attribute
-            this.setUsuarios(updatedUsuarios);
-        } else {
-            System.out.println("Usuario no encontrado");
-        }
+    public Usuario buscarUsuario(String cedula) throws UsuarioNotFoundException {
+    	int i = this.buscarUsuarioIndex(cedula);
+        return this.getUsuarios()[i];
     }
-
-    //reservas
-    public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) {
-
-    	int i = buscarUsuario(cedula);
-    	
-    		usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
+    public void eliminarUsuario(String cedula) throws UsuarioNotFoundException {
+        int index = this.buscarUsuarioIndex(cedula);
+        Usuario[] usuarios = this.getUsuarios();
+        // Create a new array without the user to be removed
+        Usuario[] updatedUsuarios = new Usuario[usuarios.length - 1];
+        System.arraycopy(usuarios, 0, updatedUsuarios, 0, index);
+        System.arraycopy(usuarios, index + 1, updatedUsuarios, index, usuarios.length - index - 1);
+        // Set the updated array to the class attribute
+        this.setUsuarios(updatedUsuarios);
     }
-    
-    public void crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) {
-
-    	int i = buscarUsuario(cedula);
-    	
-    		usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
+    /*
+    public ReservaLugar createReservaLugar(String codigo, LugarDeEvento lugarEvento,int cantidadPersonas) {
+    	return new ReservaLugar(codigo, lugarEvento, new Date(), cantidadPersonas);
+    }
+    */
+    public void agregarReservaUsuario(Usuario usuario, Reserva r) {
+    		usuario.agregarReserva(r);
     }
     
     //eventos
@@ -147,14 +140,46 @@ public class Aplicacion {
         // Set the updated array to the class attribute
         this.setLugaresEventos(updatedLugaresEventos);
     }
+    
+    //empresas
+    public void agregarEmpSonido(String nombre, String codigo, String[] tipoGenero, double basico, double premium, double deluxe, String[] marcaEquipo)
+    {
 
-    
-    
-    // Méthode pour filtrer par budget
-    public void filtrarPresupuesto() {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaSonido(nombre, codigo, tipoGenero, basico, premium, deluxe, marcaEquipo);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
     }
 
-    
+    public void agregarEmpLimpieza(String nombre,String cuandoLimpia, String codigo, double basico, double premium, double deluxe)
+    {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
 
-    
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaLimpieza(nombre,cuandoLimpia, codigo, basico, premium, deluxe);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+    }
+
+    public void agregarEmpCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal)
+    {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaCatering(nombre, codigo, basico, premium, deluxe, menusDsiponibles, especialidadesCulinarias, disponibilidadPersonal);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+
+
+    }
+
+    public void agregarEmpDecoradora(String nombre, String codigo, boolean utilizaPlantas, double basico, double premium, double deluxe, String[] estiloDecoracion, String especialidad, String[] alquilerMobiliario)
+    {
+    int len = this.getEmpresaPrestadoraServicio().length + 1;
+
+        	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
+        	empresaPrestadoraServicio[len-1] = new EmpresaDecoradora(nombre, codigo, utilizaPlantas, basico, premium, deluxe, estiloDecoracion, especialidad, alquilerMobiliario);
+        	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+    }
 }
