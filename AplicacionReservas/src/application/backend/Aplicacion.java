@@ -170,7 +170,7 @@ public class Aplicacion {
 
     }
 
-    public void agregarEmpCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal)
+    public void agregarEmpCatering(String nombre, String codigo,double basico, double premium, double deluxe, String[] menusDsiponibles, String[] especialidadesCulinarias, int disponibilidadPersonal) 
     {
     int len = this.getEmpresaPrestadoraServicio().length + 1;
 

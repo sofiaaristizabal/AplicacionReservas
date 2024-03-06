@@ -153,7 +153,9 @@ public class Aplicacion {
     
     
     // Méthode pour filtrer par budget
-    public void filtrarPresupuesto() {
+    public void filtrarPresupuesto(String cedula, double nuevoP) {
+    	
+    	usuarios[buscarUsuario(cedula)].setPresupuesto(nuevoP);
     }
 
     
