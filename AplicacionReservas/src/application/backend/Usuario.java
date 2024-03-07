@@ -111,7 +111,7 @@ public class Usuario {
 		
 	}
 	
-	public int buscarReserva(String codigo)
+	public int buscarIndexReserva(String codigo)
 	{
 		int i = 0;
 		while((i<reservas.length) && !(reservas[i].getCodigo().equals(codigo)) )
@@ -127,6 +127,18 @@ public class Usuario {
 		}
 		
 	}
+	
+	
+     public Reserva buscarReserva(String codigo) {
+		
+		int i = buscarIndexReserva(codigo);
+		
+		return reservas[i];
+	}
+	
+	
+	
+	}
 
 	
 	
@@ -137,4 +149,4 @@ public class Usuario {
 	
 	
 
-}
+

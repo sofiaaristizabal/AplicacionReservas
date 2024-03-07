@@ -1,6 +1,7 @@
 package application.backend;
 
 import java.util.Arrays;
+import java.util.Date;
 
 import application.backend.empresa.EmpresaCatering;
 import application.backend.empresa.EmpresaDecoradora;
@@ -8,6 +9,7 @@ import application.backend.empresa.EmpresaLimpieza;
 import application.backend.empresa.EmpresaPrestadoraServicio;
 import application.backend.empresa.EmpresaSonido;
 import application.backend.reserva.Reserva;
+import application.backend.reserva.ReservaLugar;
 import application.exceptions.LugarNotFoundException;
 import application.exceptions.UsuarioNotFoundException;
 
@@ -190,5 +192,19 @@ public class Aplicacion {
         	EmpresaPrestadoraServicio[] empresaPrestadoraServicio = Arrays.copyOf( this.getEmpresaPrestadoraServicio(), len);;
         	empresaPrestadoraServicio[len-1] = new EmpresaDecoradora(nombre, codigo, utilizaPlantas, basico, premium, deluxe, estiloDecoracion, especialidad, alquilerMobiliario);
         	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
+    }
+    
+    //tirar error
+    
+    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, Date fechaEvento, double tarifaPagar) throws UsuarioNotFoundException {
+    	
+    	Usuario u = buscarUsuario(cedula);
+    	Reserva e = u.buscarReserva(codigo);
+    	
+    	if(e instanceof ReservaLugar) {
+    		
+    		((ReservaLugar) e).agregarContrato(empresa, fechaEvento, tarifaPagar);
+    		
+    	}
     }
 }
