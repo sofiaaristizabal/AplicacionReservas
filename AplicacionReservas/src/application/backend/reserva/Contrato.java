@@ -7,6 +7,7 @@ import application.backend.empresa.EmpresaPrestadoraServicio;
 
 public class Contrato {
 	
+	private String codigo;
 	private EmpresaPrestadoraServicio empresa;
 	private String fechaGeneracion;
 	private Date fechaEvento;
@@ -19,6 +20,7 @@ public class Contrato {
 		this.fechaEvento = fechaEvento;
 		this.tarifaPagar = tarifaPagar;
 		generarFechaGeneracion();
+		generarCodigo();
 		
 	}
 	
@@ -29,6 +31,20 @@ public class Contrato {
 		Date dia = new Date();
 		
 		this.fechaGeneracion = simpleDateFormat.format(dia);
+	}
+	
+	public void generarCodigo() {
+		
+		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		StringBuilder code = new StringBuilder();
+		
+		for(int i= 0; i < 4; i++) {
+			
+			int indice = (int)(Math.random()*caracteres.length());
+			code.append(caracteres.charAt(indice));
+		}
+		
+		this.codigo = code.toString();
 	}
 
 
@@ -54,6 +70,14 @@ public class Contrato {
 
 	public void setTarifaPagar(double tarifaPagar) {
 		this.tarifaPagar = tarifaPagar;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 	
 	

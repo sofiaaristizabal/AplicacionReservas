@@ -2,6 +2,7 @@ package application.frontend;
 
 import java.util.*;
 
+
 import application.backend.Aplicacion;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,10 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import application.backend.*;
+import application.backend.empresa.*;
+import application.backend.reserva.*;
+import application.exceptions.*;
 
 
 public class Main extends Application {
@@ -29,7 +34,13 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		
-      Aplicacion app = Aplicacion.getAplicacion();
+    
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+		
+   /*  Aplicacion app = Aplicacion.getAplicacion();
 		
 		
 		
@@ -59,13 +70,7 @@ public class Main extends Application {
 	    //Cielo alto
 	    app.agregarLugarEvento("Cielo alto ","Carrera 9E #16ASur-104 – Medellín, Colombia" , 150000 , 100, "Salon social", "Cielo Alto es el lugar perfecto para la celebración de los quince que siempre has soñado. Adecuamos y decoramos el salón para que la celebración sea única y tus invitados la disfruten como ninguna otra.", true);
 		 
-	}
-	
-	public static void main(String[] args) {
-		launch(args);
-		
-		
-		
+		*/
 		
 	}
 }

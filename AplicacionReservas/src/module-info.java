@@ -5,4 +5,9 @@ module AplicacionReservas {
 	requires javafx.base;
 	
 	opens application to javafx.graphics, javafx.fxml;
+	
+	
+	opens application.frontend to javafx.graphics, javafx.fxml;
+	    
+	
 }

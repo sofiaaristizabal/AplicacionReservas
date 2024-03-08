@@ -28,6 +28,45 @@ public class ReservaLugar extends Reserva {
 		
 	}
 	
+	public int buscarIndexContrato(String codigo) throws ContratoNotFoundException {
+		
+		int i = 0;
+		
+		while(!contratos[i].getCodigo().equals(codigo) && i<contratos.length) {
+			
+			i++;
+		}
+		
+		if(i<contratos.length) {
+			
+			return i;
+		} else throw new ContratoNotFoundException(codigo);
+	}
+	
+   public Contrato buscarContrato(String codigo) throws ContratoNotFoundException {
+		
+		int i = buscarIndexContrato(codigo);
+		
+		return contratos[i];
+	}
+	
+	public void eliminarContrato(String codigo) throws ContratoNotFoundException {
+		
+		int i = buscarIndexContrato(codigo);
+		
+		Contrato[] cTemp = new Contrato[contratos.length-1];
+		
+		if(i >0) {
+			
+			System.arraycopy(contratos, 0, cTemp, 0, i);
+			System.arraycopy(contratos, i+1, cTemp, i, contratos.length-i-1);
+		} else {
+			System.arraycopy(contratos, 1, cTemp, 0, contratos.length-1);
+		}
+		
+		contratos = cTemp;
+	}
+	
 	
 
 }

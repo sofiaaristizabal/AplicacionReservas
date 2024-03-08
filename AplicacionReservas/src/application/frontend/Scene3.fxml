@@ -6,16 +6,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerScene3">
-   <children>
-      <Label fx:id="capacidad" alignment="CENTER" layoutX="46.0" layoutY="24.0" prefHeight="21.0" prefWidth="594.0" text="Lugares de Eventos recomendados">
-         <font>
-            <Font name="Lucida Sans Regular" size="15.0" />
-         </font></Label>
-      <ListView fx:id="myListView" layoutX="228.0" layoutY="197.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="ubicacion" alignment="CENTER" layoutX="28.0" layoutY="57.0" prefHeight="21.0" prefWidth="600.0" text="ubicacion" />
-      <Label fx:id="PrecioPorHora" alignment="CENTER" layoutX="28.0" layoutY="94.0" prefHeight="21.0" prefWidth="600.0" text="PrecioPorHora" />
-      <Button fx:id="generarReserva" layoutX="500.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchGenerarReserva" text="Generar Reserva" />
-      <Button fx:id="inicio" layoutX="28.0" layoutY="366.0" mnemonicParsing="false" onAction="#smithcInicio" text="Inicio " />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0"
+	prefWidth="686.0" xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.ControllerScene3">
+	<children>
+		<Label fx:id="capacidad" alignment="CENTER" layoutX="46.0"
+			layoutY="24.0" prefHeight="21.0" prefWidth="594.0"
+			text="Lugares de Eventos recomendados">
+			<font>
+				<Font name="Lucida Sans Regular" size="15.0" />
+			</font>
+		</Label>
+		<ListView fx:id="myListView" layoutX="228.0" layoutY="197.0"
+			prefHeight="200.0" prefWidth="200.0" />
+		<Label fx:id="ubicacion" alignment="CENTER" layoutX="28.0"
+			layoutY="57.0" prefHeight="21.0" prefWidth="600.0" text="ubicacion" />
+		<Label fx:id="PrecioPorHora" alignment="CENTER" layoutX="28.0"
+			layoutY="94.0" prefHeight="21.0" prefWidth="600.0"
+			text="PrecioPorHora" />
+		<Button fx:id="generarReserva" layoutX="500.0" layoutY="366.0"
+			mnemonicParsing="false" onAction="#switchGenerarReserva"
+			text="Generar Reserva" />
+		<Button fx:id="inicio" layoutX="28.0" layoutY="366.0"
+			mnemonicParsing="false" onAction="#smithcInicio" text="Inicio " />
+	</children>
 </AnchorPane>
