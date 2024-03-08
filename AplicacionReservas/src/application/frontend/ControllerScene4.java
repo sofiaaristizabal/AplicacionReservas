@@ -4,7 +4,6 @@ import java.net.URL;
 
 import application.backend.LugarDeEvento;
 import application.backend.reserva.*;
-import application.exceptions.LugarNotFoundException;
 import application.backend.*;
 import application.backend.empresa.*;
 import application.backend.reserva.*;
@@ -14,7 +13,6 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import application.Aplicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,16 +51,23 @@ public class ControllerScene4 implements Initializable{
 	private String cedula = "123456789";
 	private LocalDate myDate;
 	
-	public void generarReserva() throws NumberFormatException, LugarNotFoundException {
+	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException {
 		
-		if(tipoReserva.getValue().equals("Reserva de lugar")) {
-			
-			
-			app.crearReservaLugar(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
-		} else {
-			
-			app.crearReservaVisita(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+		
+		
+		try {
+			if(tipoReserva.getValue().equals("Reserva de lugar")) {
+				
+				app.crearReservaLugar(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
+			} else {
+				
+				app.crearReservaVisita(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+			}
+		} catch (NumberFormatException | LugarNotFoundException | UsuarioNotFoundException e ) {
+			System.out.println(e.getMessage());
 		}
+		
+		
 		
 	}
 	

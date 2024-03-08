@@ -1,5 +1,6 @@
 package application.backend;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -90,7 +91,7 @@ public class Aplicacion {
     public void agregarUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
     	int len = this.getUsuarios().length + 1;
     	Usuario[] usuarios = Arrays.copyOf( this.getUsuarios(), len);;
-    	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
+    	usuarios[len-1] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     	this.setUsuarios(usuarios);
     }
     public int buscarUsuarioIndex(String cedula) throws UsuarioNotFoundException {
@@ -127,6 +128,20 @@ public class Aplicacion {
     */
     public void agregarReservaUsuario(Usuario usuario, Reserva r) {
     		usuario.agregarReserva(r);
+    }
+    
+    public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
+
+    	int i = buscarUsuarioIndex(cedula);
+    	
+    		usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
+    }
+    
+    public void crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) throws UsuarioNotFoundException {
+
+    	int i = buscarUsuarioIndex(cedula);
+    	
+    		usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
     }
     
     //eventos

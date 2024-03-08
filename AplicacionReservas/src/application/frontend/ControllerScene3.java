@@ -32,14 +32,13 @@ public class ControllerScene3 implements Initializable{
 	private ListView<String> myListView;
 	
 	@FXML
-	private Aplicacion app = Aplicacion.getAplicacion();
-	@FXML
 	private Label capacidad;
 	@FXML
 	private Label ubicacion;
 	@FXML
 	private Label PrecioPorHora;
 	
+	private Aplicacion app = Aplicacion.getAplicacion();
 	private LugarDeEvento[] lugaresEventos = app.getLugaresEventos();
 	private String[] nombres;
 	private String currentCapacidad;
@@ -72,6 +71,8 @@ public class ControllerScene3 implements Initializable{
 		
 		myListView.getItems().addAll(nombres);
 		
+		System.out.println(app.getLugaresEventos().length);
+		
 		
 		myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
@@ -94,6 +95,7 @@ public class ControllerScene3 implements Initializable{
 				PrecioPorHora.setText("Precio por hora: "+ currentPrecioPorHora);
 				
 			}
+			
 			
 		});
 	}
