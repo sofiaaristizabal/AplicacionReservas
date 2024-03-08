@@ -3,7 +3,6 @@ package application.frontend;
 import java.net.URL;
 import application.backend.LugarDeEvento;
 import application.backend.reserva.*;
-import application.exceptions.LugarNotFoundException;
 import application.backend.empresa.*;
 import application.exceptions.*;
 import java.time.LocalDate;
@@ -48,7 +47,7 @@ public class ControllerScene4 implements Initializable{
 	private String cedula = "123456789";
 	private LocalDate myDate;
 	
-	public void generarReserva() throws NumberFormatException, LugarNotFoundException {
+	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException {
 		
 		if(tipoReserva.getValue().equals("Reserva de lugar")) {
 			
