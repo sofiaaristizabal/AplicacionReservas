@@ -4,16 +4,16 @@ import java.net.URL;
 import java.io.IOException;
 
 import application.backend.LugarDeEvento;
+
 import application.backend.reserva.*;
 import application.backend.*;
 import application.backend.empresa.*;
 import application.backend.reserva.*;
 import application.exceptions.*;
-
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
+import application.backend.Aplicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,8 +56,11 @@ public class ControllerScene4 implements Initializable{
 	private String cedula;
 	private LocalDate myDate;
 	
+	
+	
+
 	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException, IOException {
-		
+
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Main.fxml"));
 		root = loader.load();
 		ControllerMain controllerMain = loader.getController();
@@ -73,9 +76,16 @@ public class ControllerScene4 implements Initializable{
 			}
 		} catch (NumberFormatException | LugarNotFoundException | UsuarioNotFoundException e ) {
 			System.out.println(e.getMessage());
+
+		if(tipoReserva.getValue().equals("Reserva de lugar")) {
+			
+			app.crearReservaLugar(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
+		} else {
+			
+			app.crearReservaVisita(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+	}
+		
 		}
-		
-		
 		
 	}
 	

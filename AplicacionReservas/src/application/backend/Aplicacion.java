@@ -121,11 +121,9 @@ public class Aplicacion {
         // Set the updated array to the class attribute
         this.setUsuarios(updatedUsuarios);
     }
-    /*
-    public ReservaLugar createReservaLugar(String codigo, LugarDeEvento lugarEvento,int cantidadPersonas) {
-    	return new ReservaLugar(codigo, lugarEvento, new Date(), cantidadPersonas);
-    }
-    */
+    
+    
+    
     public void agregarReservaUsuario(Usuario usuario, Reserva r) {
     		usuario.agregarReserva(r);
     }

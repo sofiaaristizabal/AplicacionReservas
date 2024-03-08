@@ -3,13 +3,8 @@ package application.frontend;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import application.backend.Aplicacion;
-import application.backend.LugarDeEvento;
 import application.backend.empresa.EmpresaPrestadoraServicio;
-import application.exceptions.LugarNotFoundException;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,10 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
-import application.backend.*;
-import application.backend.empresa.*;
-import application.backend.reserva.*;
-import application.exceptions.*;
 
 public class ControllerScene5 implements Initializable{
 
