@@ -1,6 +1,7 @@
 package application.frontend;
 
 import java.net.URL;
+import java.io.IOException;
 
 import application.backend.LugarDeEvento;
 import application.backend.reserva.*;
@@ -12,10 +13,11 @@ import application.exceptions.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
-
+import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -45,15 +47,21 @@ public class ControllerScene4 implements Initializable{
     @FXML
     private Button reservar;
 	
+
+	private Parent root;
+    
 	private Aplicacion app = Aplicacion.getAplicacion();
 	private LugarDeEvento [] lugares = app.getLugaresEventos();
 	private String [] nombres;
-	private String cedula = "123456789";
+	private String cedula;
 	private LocalDate myDate;
 	
-	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException {
+	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException, IOException {
 		
-		
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Main.fxml"));
+		root = loader.load();
+		ControllerMain controllerMain = loader.getController();
+		cedula = controllerMain.getCedula();
 		
 		try {
 			if(tipoReserva.getValue().equals("Reserva de lugar")) {

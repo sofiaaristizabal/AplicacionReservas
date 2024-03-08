@@ -3,6 +3,7 @@ package application.frontend;
 import java.io.IOException;
 
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,6 +74,10 @@ public class ControllerMain {
 		stage.show();
 		
 		app.agregarUsuario(nameTextField.getText(),cedula.getText(), Integer.parseInt(edad.getText()), telefono.getText(), correo.getText(), Double.parseDouble(saldo.getText()),Double.parseDouble(presupuesto.getText())  );
+	}
+	
+	public String getCedula() {
+		return cedula.getText();
 	}
 	
 	public void displayImage() {

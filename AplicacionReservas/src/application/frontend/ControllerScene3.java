@@ -2,6 +2,7 @@ package application.frontend;
 
 import java.io.IOException;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -78,6 +79,7 @@ public class ControllerScene3 implements Initializable{
 
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				
 				
 				
 				try {
