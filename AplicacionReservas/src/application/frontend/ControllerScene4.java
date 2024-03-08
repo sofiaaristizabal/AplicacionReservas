@@ -2,11 +2,8 @@ package application.frontend;
 
 import java.net.URL;
 import application.backend.LugarDeEvento;
-import application.backend.reserva.*;
-import application.backend.empresa.*;
 import application.exceptions.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 import application.backend.Aplicacion;
 import javafx.event.ActionEvent;
