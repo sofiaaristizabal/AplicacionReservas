@@ -85,7 +85,7 @@ public class Aplicacion {
     public void agregarUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
     	int len = this.getUsuarios().length + 1;
     	Usuario[] usuarios = Arrays.copyOf( this.getUsuarios(), len);;
-    	usuarios[len] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
+    	usuarios[len-1] = crearUsuario(nombre, cedula, edad, telefono, correo, presupuesto, saldo);
     	this.setUsuarios(usuarios);
     }
     public int buscarUsuario(String cedula) {

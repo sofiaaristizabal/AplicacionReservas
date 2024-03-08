@@ -9,7 +9,7 @@
 	minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0"
 	prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
 	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="application.ControllerMain">
+	fx:controller="application.frontend.ControllerMain">
 	<children>
 		<Label contentDisplay="CENTER" layoutY="23.0" prefHeight="21.0"
 			prefWidth="600.0" text="Registro Usuario" />
