@@ -1,5 +1,6 @@
 package application.backend;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -120,11 +121,17 @@ public class Aplicacion {
         // Set the updated array to the class attribute
         this.setUsuarios(updatedUsuarios);
     }
-    /*
-    public ReservaLugar createReservaLugar(String codigo, LugarDeEvento lugarEvento,int cantidadPersonas) {
-    	return new ReservaLugar(codigo, lugarEvento, new Date(), cantidadPersonas);
+    
+    public void crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) throws UsuarioNotFoundException {
+        int i = buscarUsuarioIndex(cedula);
+                usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
+        }
+    
+    public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
+    	int index = this.buscarUsuarioIndex(cedula);
+        usuarios[index].agregarReservaLugar(cantidad, lugar, fechaReserva);
     }
-    */
+    
     public void agregarReservaUsuario(Usuario usuario, Reserva r) {
     		usuario.agregarReserva(r);
     }
