@@ -1,19 +1,11 @@
 package application.frontend;
 
-import java.util.*;
-
-
 import application.backend.Aplicacion;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import application.backend.*;
-import application.backend.empresa.*;
-import application.backend.reserva.*;
-import application.exceptions.*;
 
 
 public class Main extends Application {

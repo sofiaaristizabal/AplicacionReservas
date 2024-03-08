@@ -1,10 +1,8 @@
 package application.frontend;
 
 import java.io.IOException;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import application.backend.Aplicacion;
 import application.backend.LugarDeEvento;
 import application.exceptions.LugarNotFoundException;
@@ -21,10 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import application.backend.*;
-import application.backend.empresa.*;
-import application.backend.reserva.*;
-import application.exceptions.*;
 
 public class ControllerScene3 implements Initializable{
 
