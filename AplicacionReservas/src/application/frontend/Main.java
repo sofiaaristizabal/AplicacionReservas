@@ -59,6 +59,15 @@ public class Main extends Application {
 	    app.agregarLugarEvento("Cielo alto ","Carrera 9E #16ASur-104 – Medellín, Colombia" , 150000 , 100, "Salon social", "Cielo Alto es el lugar perfecto para la celebración de los quince que siempre has soñado. Adecuamos y decoramos el salón para que la celebración sea única y tus invitados la disfruten como ninguna otra.", true);
 		 
 		System.out.println(app.getLugaresEventos().length);
+	
+		// empresas 	
+	    app.agregarEmpSonido("Deluxe Sound","001",["Vallenato", "Electrónica", "Reggaeton"],"300.000","1.000.000","2.000.000",["Bose", "JBL", "Beats"],true);
+
+	    app.agregarEmpLimpieza("Los Limpiadores","Limipia Antes, Antes y Despues, Antes, Durante y Despues","103","100.000","200.000","300.000",true);
+
+	    app.agregarEmpCatering("Catering Fiestas","209","500.000","1.000.000","2.000.000",["Comida Japonesa", "Comida Arabe", "Comida Tipica"],["Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"],"20",true);
+
+	    app.agregarEmpDecoradora("Decoradores plus","458","
     
 	}
 	
