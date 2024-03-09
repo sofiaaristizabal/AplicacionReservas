@@ -61,13 +61,13 @@ public class Main extends Application {
 		System.out.println(app.getLugaresEventos().length);
 	
 		// empresas 	
-	    app.agregarEmpSonido("Deluxe Sound","001",["Vallenato", "Electrónica", "Reggaeton"],"300.000","1.000.000","2.000.000",["Bose", "JBL", "Beats"],true);
+	    app.agregarEmpSonido("Deluxe Sound",001,["Vallenato", "Electrónica", "Reggaeton"],300.000,1.000.000,2.000.000,["Bose", "JBL", "Beats"]);
 
-	    app.agregarEmpLimpieza("Los Limpiadores","Limipia Antes, Antes y Despues, Antes, Durante y Despues","103","100.000","200.000","300.000",true);
+	    app.agregarEmpLimpieza("Los Limpiadores","Limipia Antes, Antes y Despues, Antes, Durante y Despues",103,100.000,200.000,300.000);
 
-	    app.agregarEmpCatering("Catering Fiestas","209","500.000","1.000.000","2.000.000",["Comida Japonesa", "Comida Arabe", "Comida Tipica"],["Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"],"20",true);
+	    app.agregarEmpCatering("Catering Fiestas",209,500.000,1.000.000,2.000.000,["Comida Japonesa", "Comida Arabe", "Comida Tipica"],["Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"],20);
 
-	    app.agregarEmpDecoradora("Decoradores plus","458","
+	    app.agregarEmpDecoradora("Decoradores plus",458,true,80.000,160.000,300.000,["Estilo Hawaiano", "Estilo Matrimonio", "Estilo Fiesta"],"Fiestas para todos",["Muebles", "Sillas", "Carpas"]);
     
 	}
 	
