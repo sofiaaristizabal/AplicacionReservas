@@ -66,12 +66,16 @@ public class Main extends Application {
 		 String[] tipoSonido = {"Vallenato", "Electrónica", "Reggaeton"};
 		 String [] marcaEquipo = {"Bose", "JBL", "Beats"};
 		
-	    app.agregarEmpSonido("Deluxe Sound","001",tipoSonido,300000,1000000,2000000,marcaEquipo);
-
+	    app.agregarEmpSonido("Deluxe Sound","001",tipoSonido,1000000,2000000,3000000,marcaEquipo);
+	    app.agregarEmpSonido("Surround Sound","002",new String[]{"Rock", "Tango", "Jazz"},500000,1500000,2500000,new String[]{"Sony", "Samsung", "LG"});
+	
 	    app.agregarEmpLimpieza("Los Limpiadores","Limipia Antes, Antes y Despues, Antes, Durante y Despues","103",100000,200000,300000);
+	    app.agregarEmpLimpieza("Limpia +","Limipia Antes, Antes y Despues, Antes, Durante y Despues","104",500000,1500000,2500000);
 
 	    app.agregarEmpCatering("Catering Fiestas","209",500000,1000000,2000000,new String[]{"Comida Japonesa", "Comida Arabe", "Comida Tipica"},new String[]{"Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"},20);
+	    app.agregarEmpCatering("Servicios Catering","210",1500000,2500000,3000000,new String[]{"Comida China", "Comida Argentina", "Comida Tipica"},new String[]{"Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"},20);
 
+	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Estilo Fiesta"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
 	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Estilo Fiesta"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
 
     
