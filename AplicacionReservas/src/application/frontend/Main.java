@@ -73,10 +73,10 @@ public class Main extends Application {
 	    app.agregarEmpLimpieza("Limpia +","Limipia Antes, Antes y Despues, Antes, Durante y Despues","104",500000,1500000,2500000);
 
 	    app.agregarEmpCatering("Catering Fiestas","209",500000,1000000,2000000,new String[]{"Comida Japonesa", "Comida Arabe", "Comida Tipica"},new String[]{"Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"},20);
-	    app.agregarEmpCatering("Servicios Catering","210",1500000,2500000,3000000,new String[]{"Comida China", "Comida Argentina", "Comida Tipica"},new String[]{"Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"},20);
+	    app.agregarEmpCatering("Servicios Catering","210",1500000,2500000,3000000,new String[]{"Comida China", "Comida Argentina", "Comida Italiana"},new String[]{"Arrozes, Pato", "Carne, Chorizo", "Pasta, Pizza"},25);
 
-	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Estilo Fiesta"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
-	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Estilo Fiesta"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
+	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Despedida Soltero/a"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
+	    app.agregarEmpDecoradora("Decora todo","459",true,1000000,2000000,3500000,new String[]{"Fiesta de 15s", "Bar Mitzvá", "Cumpleaños"},"FestiEventos",new String[]{"Mesas", "Mobiliario de bar", "Mobiliario de iluminación"});
 
     
 	}
