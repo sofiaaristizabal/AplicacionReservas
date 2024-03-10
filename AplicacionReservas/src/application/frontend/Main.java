@@ -30,6 +30,7 @@ public class Main extends Application {
 		
       Aplicacion app = Aplicacion.getAplicacion();
 		
+     
 		
 		
 		//lugares de evento iniciales
@@ -57,8 +58,22 @@ public class Main extends Application {
 	    		+ " para que su fiesta sea una bonita y agradable sensación y para que ese maravilloso evento se convierta en el mejor de sus vidas. No duden en conocer los servicios que esta empresa les ofrece.", true);
 	    //Cielo alto
 	    app.agregarLugarEvento("Cielo alto ","Carrera 9E #16ASur-104 – Medellín, Colombia" , 150000 , 100, "Salon social", "Cielo Alto es el lugar perfecto para la celebración de los quince que siempre has soñado. Adecuamos y decoramos el salón para que la celebración sea única y tus invitados la disfruten como ninguna otra.", true);
-		 
+
+		System.out.println(app.getLugaresEventos().length);
+	
+		// empresas 	
 		
+		 String[] tipoSonido = {"Vallenato", "Electrónica", "Reggaeton"};
+		 String [] marcaEquipo = {"Bose", "JBL", "Beats"};
+		
+	    app.agregarEmpSonido("Deluxe Sound","001",tipoSonido,300000,1000000,2000000,marcaEquipo);
+
+	    app.agregarEmpLimpieza("Los Limpiadores","Limipia Antes, Antes y Despues, Antes, Durante y Despues","103",100000,200000,300000);
+
+	    app.agregarEmpCatering("Catering Fiestas","209",500000,1000000,2000000,new String[]{"Comida Japonesa", "Comida Arabe", "Comida Tipica"},new String[]{"Sushi, Baos", "Kebab, Baklavas", "Frijoles, Chicharron"},20);
+
+	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Estilo Fiesta"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
+
     
 	}
 	
