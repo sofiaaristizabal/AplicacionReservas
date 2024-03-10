@@ -66,8 +66,6 @@ public class ControllerScene3 implements Initializable{
 		
 		myListView.getItems().addAll(nombres);
 		
-		System.out.println(app.getLugaresEventos().length);
-		
 		
 		myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 

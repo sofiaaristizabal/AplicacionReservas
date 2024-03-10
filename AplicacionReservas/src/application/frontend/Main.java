@@ -58,7 +58,7 @@ public class Main extends Application {
 	    //Cielo alto
 	    app.agregarLugarEvento("Cielo alto ","Carrera 9E #16ASur-104 – Medellín, Colombia" , 150000 , 100, "Salon social", "Cielo Alto es el lugar perfecto para la celebración de los quince que siempre has soñado. Adecuamos y decoramos el salón para que la celebración sea única y tus invitados la disfruten como ninguna otra.", true);
 		 
-		System.out.println(app.getLugaresEventos().length);
+		
     
 	}
 	

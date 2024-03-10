@@ -47,49 +47,37 @@ public class ControllerScene4 implements Initializable{
     @FXML
     private Button reservar;
 	
-
-	private Parent root;
+    UserData userData = UserData.getUserData();
     
 	private Aplicacion app = Aplicacion.getAplicacion();
 	private LugarDeEvento [] lugares = app.getLugaresEventos();
 	private String [] nombres;
 	private String cedula;
 	private LocalDate myDate;
+	private String[] tiposReservas = {"Reserva de lugar", "Reserva de visita"};
 	
 	
-	
+   
 
-	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException, IOException {
+	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException {
 
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Main.fxml"));
-		root = loader.load();
-		ControllerMain controllerMain = loader.getController();
-		cedula = controllerMain.getCedula();
+		cedula = userData.getCedula();
 		
 		try {
 			if(tipoReserva.getValue().equals("Reserva de lugar")) {
 				
-				app.crearReservaLugar(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
+				app.crearReservaLugar(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
 			} else {
 				
-				app.crearReservaVisita(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+				app.crearReservaVisita(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
 			}
 		} catch (NumberFormatException | LugarNotFoundException | UsuarioNotFoundException e ) {
 			System.out.println(e.getMessage());
-
-		if(tipoReserva.getValue().equals("Reserva de lugar")) {
-			
-			app.crearReservaLugar(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
-		} else {
-			
-			app.crearReservaVisita(cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
-	}
 		
 		}
 		
 	}
 	
-	private String[] tiposReservas = {"Reserva de lugar", "Reserva de visita"};
 	
     public void obtenerNombres() {
 		
@@ -136,5 +124,7 @@ public class ControllerScene4 implements Initializable{
 		
 		fecha.setText(myDate.toString());
 	}
+	
+	
 	
 }
