@@ -84,8 +84,12 @@ public class Aplicacion {
 		}
     }
     
-
 	//public methods
+	
+	public LugarDeEvento buscarLugarEvento(String nombre) throws LugarNotFoundException {
+    	int i = this.buscarIndexLugarEvento(nombre);
+    	return this.getLugaresEventos()[i];
+    }
 	
 	//usuarios
     public void agregarUsuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
@@ -123,11 +127,6 @@ public class Aplicacion {
     }
     
     
-    
-    public void agregarReservaUsuario(Usuario usuario, Reserva r) {
-    		usuario.agregarReserva(r);
-    }
-    
     public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
 
     	int i = buscarUsuarioIndex(cedula);
@@ -149,10 +148,7 @@ public class Aplicacion {
     	lugaresEventos[len-1] = crearLugareDeEvento(nombre, ubicacion, precioPorHora, capacidad, entorno, descripcion, incluyeSeguro);
     	this.setLugaresEventos(lugaresEventos);
     }
-    public LugarDeEvento buscarLugarEvento(String nombre) throws LugarNotFoundException {
-    	int i = this.buscarIndexLugarEvento(nombre);
-    	return this.getLugaresEventos()[i];
-    }
+    
     public void eliminarLugarEvento(String nombre) throws LugarNotFoundException {
         int index = this.buscarIndexLugarEvento(nombre);
 
@@ -165,7 +161,27 @@ public class Aplicacion {
         this.setLugaresEventos(updatedLugaresEventos);
     }
     
+    
     //empresas
+    
+    public int buscarEmpreaPrestadoraDeServiciosIndex(String nombre) throws EmpresaPrestadoraServicioNotFoundException {
+       
+    
+        int i = 0;
+
+        while (i < empresaPrestadoraServicio.length && !empresaPrestadoraServicio[i].equals(nombre)) {
+            i++;
+        }
+
+        if (i < empresaPrestadoraServicio.length)
+			return i;
+		else throw new EmpresaPrestadoraServicioNotFoundException(nombre);
+    }
+    public EmpresaPrestadoraServicio buscarEmpresaPrestadoraDeServicios(String nombre) throws EmpresaPrestadoraServicioNotFoundException {
+    	int i = buscarEmpreaPrestadoraDeServiciosIndex(nombre);
+        return empresaPrestadoraServicio[i];
+    }
+    
     public void agregarEmpSonido(String nombre, String codigo, String[] tipoGenero, double basico, double premium, double deluxe, String[] marcaEquipo)
     {
 
@@ -206,6 +222,8 @@ public class Aplicacion {
         	empresaPrestadoraServicio[len-1] = new EmpresaDecoradora(nombre, codigo, utilizaPlantas, basico, premium, deluxe, estiloDecoracion, especialidad, alquilerMobiliario);
         	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
     }
+    
+    //contratos
     
     //tirar error
     

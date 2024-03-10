@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.backend.Aplicacion;
+import application.backend.EmpresaPrestadoraServicioNotFoundException;
 import application.backend.empresa.EmpresaPrestadoraServicio;
+import application.exceptions.LugarNotFoundException;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,8 +26,9 @@ public class ControllerScene5 implements Initializable{
 	@FXML
 	private ListView<String> myListView;
 	
-	@FXML
+	
 	private Aplicacion app = Aplicacion.getAplicacion();
+	
 	@FXML
 	private Label basico;
 	@FXML
@@ -32,14 +37,20 @@ public class ControllerScene5 implements Initializable{
 	private Label deluxe;
 	
 	@FXML
-	private Label info;
+	private Label variable1;
+	
+	@FXML
+	private Label variable2;
+	
+	@FXML
+	private Label variable3;
 	
 	private EmpresaPrestadoraServicio[] EmpresasPrestadorasDeServicios = app.getEmpresaPrestadoraServicio();
-	private String[] nombres;
+	private String[] empresas;
 	private String currentBasico;
 	private String currentPremium;
 	private String currentDeluxe;
-	private String currentInfo;
+	
 	
 	@FXML
 	private Button inicio;
@@ -50,17 +61,47 @@ public class ControllerScene5 implements Initializable{
 	private Scene scene;
 	private Parent root;
 	
-	public void obtenerNombres() {
+	
+    public void obtenerNombres() {
 		
-		nombres = new String[EmpresasPrestadorasDeServicios.length];
+		empresas = new String[EmpresasPrestadorasDeServicios.length];
 		for(int i = 0; i < EmpresasPrestadorasDeServicios.length; i++) {
-			nombres[i] = EmpresasPrestadorasDeServicios[i].getNombre();
+			empresas[i] = EmpresasPrestadorasDeServicios[i].getNombre();
 		}
 	}
-	
 
-	
-	
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+    	obtenerNombres();
+    	
+       myListView.getItems().addAll(empresas);
+		
+		
+	   myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				
+				
+				
+			try {
+				currentBasico = String.valueOf(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()).getBasico());
+				currentPremium = String.valueOf(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()).getPremium());
+				currentDeluxe= String.valueOf(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()).getDeluxe());
+			} catch (EmpresaPrestadoraServicioNotFoundException e) {
+				
+				e.printStackTrace();
+			}
+			 
+			basico.setText(currentBasico);
+			premium.setText(currentPremium);
+			deluxe.setText(currentDeluxe);
+			
+			}
+	   });
+    }
+    
 	
 	public void smithcInicio(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene2.fxml"));
@@ -78,7 +119,9 @@ public class ControllerScene5 implements Initializable{
 		stage.show();
 	}
 	
-    public void switchGenerarReserva(ActionEvent event) throws IOException {
+	//MAKE THE GENERAR CONTRATO METHOD 
+	
+    public void switchGenerarContrato(ActionEvent event) throws IOException {
 		
     	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene4.fxml"));
 		root = loader.load();
@@ -99,12 +142,7 @@ public class ControllerScene5 implements Initializable{
 
 
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		
-		
-	}
+	
 
 
 

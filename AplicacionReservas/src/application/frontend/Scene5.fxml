@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView layoutX="48.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0" />
-      <ListView layoutX="442.0" layoutY="77.0" prefHeight="200.0" prefWidth="200.0" />
-      <ListView layoutX="48.0" layoutY="395.0" prefHeight="200.0" prefWidth="200.0" />
-      <ListView layoutX="442.0" layoutY="395.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView layoutX="92.0" layoutY="112.0" prefHeight="253.0" prefWidth="244.0" />
+      <Label layoutX="406.0" layoutY="153.0" text="BASCIO" />
+      <Label layoutX="406.0" layoutY="208.0" text="PREMIUM" />
+      <Label layoutX="406.0" layoutY="275.0" text="DELUXE" />
+      <Label layoutX="564.0" layoutY="153.0" text="Label" />
+      <Label layoutX="570.0" layoutY="208.0" text="Label" />
+      <Label layoutX="570.0" layoutY="275.0" text="Label" />
    </children>
 </AnchorPane>
