@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.frontend.ControllerScene5">
    <children>
-      <ListView layoutX="92.0" layoutY="112.0" prefHeight="253.0" prefWidth="244.0" />
-      <Label layoutX="406.0" layoutY="153.0" text="BASCIO" />
-      <Label layoutX="406.0" layoutY="208.0" text="PREMIUM" />
-      <Label layoutX="406.0" layoutY="275.0" text="DELUXE" />
-      <Label layoutX="564.0" layoutY="153.0" text="Label" />
-      <Label layoutX="570.0" layoutY="208.0" text="Label" />
-      <Label layoutX="570.0" layoutY="275.0" text="Label" />
+      <ListView fx:id="myListView" layoutX="51.0" layoutY="82.0" prefHeight="253.0" prefWidth="244.0" />
+      <Label fx:id="basico" layoutX="342.0" layoutY="129.0" prefHeight="21.0" prefWidth="107.0" text="BASCIO" />
+      <Label fx:id="premium" layoutX="342.0" layoutY="198.0" prefHeight="21.0" prefWidth="107.0" text="PREMIUM" />
+      <Label fx:id="deluxe" layoutX="345.0" layoutY="274.0" prefHeight="21.0" prefWidth="118.0" text="DELUXE" />
+      <Label fx:id="variable1" layoutX="20.0" layoutY="385.0" prefHeight="21.0" prefWidth="695.0" text="1" />
+      <Label fx:id="variable2" layoutX="17.0" layoutY="438.0" prefHeight="21.0" prefWidth="695.0" text="2" />
+      <Label fx:id="variable3" layoutX="17.0" layoutY="496.0" prefHeight="21.0" prefWidth="707.0" text="3" />
+      <Button fx:id="inicio" layoutX="594.0" layoutY="150.0" mnemonicParsing="false" onAction="#smithcInicio" text="Inicio" />
+      <Button layoutX="558.0" layoutY="243.0" mnemonicParsing="false" text="Gnerar Contrato" />
    </children>
 </AnchorPane>

@@ -12,5 +12,31 @@ public class EmpresaCatering extends EmpresaPrestadoraServicio {
         this.especialidadesCulinarias = especialidadesCulinarias;
         this.disponibilidadPersonal = disponibilidadPersonal;
     }
+
+	public String[] getMenusDisponibles() {
+		return menusDisponibles;
+	}
+
+	public void setMenusDisponibles(String[] menusDisponibles) {
+		this.menusDisponibles = menusDisponibles;
+	}
+
+	public String[] getEspecialidadesCulinarias() {
+		return especialidadesCulinarias;
+	}
+
+	public void setEspecialidadesCulinarias(String[] especialidadesCulinarias) {
+		this.especialidadesCulinarias = especialidadesCulinarias;
+	}
+
+	public int getDisponibilidadPersonal() {
+		return disponibilidadPersonal;
+	}
+
+	public void setDisponibilidadPersonal(int disponibilidadPersonal) {
+		this.disponibilidadPersonal = disponibilidadPersonal;
+	}
+    
+    
     
 }

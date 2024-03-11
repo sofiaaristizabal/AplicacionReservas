@@ -5,7 +5,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import application.backend.Aplicacion;
 import application.backend.EmpresaPrestadoraServicioNotFoundException;
+import application.backend.empresa.EmpresaCatering;
+import application.backend.empresa.EmpresaDecoradora;
+import application.backend.empresa.EmpresaLimpieza;
 import application.backend.empresa.EmpresaPrestadoraServicio;
+import application.backend.empresa.EmpresaSonido;
 import application.exceptions.LugarNotFoundException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -50,6 +54,9 @@ public class ControllerScene5 implements Initializable{
 	private String currentBasico;
 	private String currentPremium;
 	private String currentDeluxe;
+	private String var1;
+	private String var2;
+	private String var3;
 	
 	
 	@FXML
@@ -89,6 +96,37 @@ public class ControllerScene5 implements Initializable{
 				currentBasico = String.valueOf(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()).getBasico());
 				currentPremium = String.valueOf(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()).getPremium());
 				currentDeluxe= String.valueOf(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()).getDeluxe());
+				
+				if(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()) instanceof EmpresaCatering) {
+					
+					EmpresaCatering e = (EmpresaCatering) app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem());
+					
+					var1 = "Menus disponibles: " + String.join(", ", e.getMenusDisponibles());
+					var2 = "Especialidades culinarias: " + String.join(", ", e.getEspecialidadesCulinarias());
+					var3 = "Disponibilidad de personal: " + String.valueOf(e.getDisponibilidadPersonal());
+				} else if(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()) instanceof EmpresaDecoradora) {
+					
+					EmpresaDecoradora d = (EmpresaDecoradora) app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem());
+					
+					var1 = "Estilo decoracion: " + String.join(", ", d.getEstiloDecoracion());
+					var2 = "Alquiler inmobiliario: " + String.join(", ", d.getAlquilerMobiliario());
+					var3 = "Especialidad: " + d.getEspecialidad();
+				} else if(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()) instanceof EmpresaLimpieza) {
+					
+					EmpresaLimpieza l = (EmpresaLimpieza) app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem());
+					
+					var1 = "Limpieza";
+					var2 = "Momento en que limpian : " + l.getCuandoLimpia();
+					var3 = " ";
+				} else if(app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem()) instanceof EmpresaSonido) {
+					
+					EmpresaSonido s = (EmpresaSonido) app.buscarEmpresaPrestadoraDeServicios(myListView.getSelectionModel().getSelectedItem());
+					
+					var1 = "Generos de musica: " + String.join(", ", s.getTipoGenero());
+					var2 = "Marcas del equipo: " + String.join(", ",s.getMarcaEquipo());
+					var3 = " ";
+				}
+				
 			} catch (EmpresaPrestadoraServicioNotFoundException e) {
 				
 				e.printStackTrace();
@@ -97,6 +135,9 @@ public class ControllerScene5 implements Initializable{
 			basico.setText(currentBasico);
 			premium.setText(currentPremium);
 			deluxe.setText(currentDeluxe);
+			variable1.setText(var1);
+			variable2.setText(var2);
+			variable3.setText(var3);
 			
 			}
 	   });

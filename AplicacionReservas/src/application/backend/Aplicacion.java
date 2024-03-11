@@ -164,12 +164,12 @@ public class Aplicacion {
     
     //empresas
     
-    public int buscarEmpreaPrestadoraDeServiciosIndex(String nombre) throws EmpresaPrestadoraServicioNotFoundException {
+	public int buscarEmpreaPrestadoraDeServiciosIndex(String nombre) throws EmpresaPrestadoraServicioNotFoundException {
        
     
         int i = 0;
 
-        while (i < empresaPrestadoraServicio.length && !empresaPrestadoraServicio[i].equals(nombre)) {
+        while (i < empresaPrestadoraServicio.length && !empresaPrestadoraServicio[i].getNombre().equals(nombre)) {
             i++;
         }
 

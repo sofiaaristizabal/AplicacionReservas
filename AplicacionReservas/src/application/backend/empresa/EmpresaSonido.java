@@ -10,4 +10,22 @@ public class EmpresaSonido extends EmpresaPrestadoraServicio {
         this.tipoGenero = tipoGenero;
         this.marcaEquipo = marcaEquipo;
     }
+
+	public String[] getTipoGenero() {
+		return tipoGenero;
+	}
+
+	public void setTipoGenero(String[] tipoGenero) {
+		this.tipoGenero = tipoGenero;
+	}
+
+	public String[] getMarcaEquipo() {
+		return marcaEquipo;
+	}
+
+	public void setMarcaEquipo(String[] marcaEquipo) {
+		this.marcaEquipo = marcaEquipo;
+	}
+    
+    
 }
