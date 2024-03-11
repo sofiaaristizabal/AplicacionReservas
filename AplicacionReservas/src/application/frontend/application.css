@@ -70,3 +70,9 @@
 	-fx-text-fill:"DarkCyan";
 }
 
+#code{
+	-fx-font-size:15;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+}
+

@@ -19,6 +19,7 @@ public abstract class Reserva {
 		this.lugarEvento = lugarEvento;
 		this.fechaReserva = fechaReserva;
         generarFecha();
+        generarCodigo();
   
 	}
   
@@ -30,6 +31,21 @@ public abstract class Reserva {
 		this.fechaGeneracion = d1;
 		
   }
+  
+  public void generarCodigo() {
+		
+		String a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		
+		String code = "";
+		
+		for(int i = 0; i < 4; i++) {
+			
+			char caracter = a.charAt((int) (Math.random()*a.length()));
+			code.concat(Character.toString(caracter));
+		}
+		
+		this.codigo = code;
+	}
 
 
 	public String getCodigo() {

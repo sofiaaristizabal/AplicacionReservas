@@ -1,6 +1,7 @@
 package application.backend;
 
 import java.time.LocalDate;
+
 import java.util.Arrays;
 import java.util.Date;
 
@@ -11,6 +12,7 @@ import application.backend.empresa.EmpresaPrestadoraServicio;
 import application.backend.empresa.EmpresaSonido;
 import application.backend.reserva.Reserva;
 import application.backend.reserva.ReservaLugar;
+import application.exceptions.EmpresaPrestadoraServicioNotFoundException;
 import application.exceptions.LugarNotFoundException;
 import application.exceptions.UsuarioNotFoundException;
 
@@ -127,18 +129,23 @@ public class Aplicacion {
     }
     
     
-    public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
+    public String crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
 
     	int i = buscarUsuarioIndex(cedula);
     	
-    		usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
+    	String codigo =	usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
+    	
+    	return codigo;
+    
     }
     
-    public void crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) throws UsuarioNotFoundException {
+    public String crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) throws UsuarioNotFoundException {
 
     	int i = buscarUsuarioIndex(cedula);
     	
-    		usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
+    	String codigo =	usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
+    	
+    	return codigo;
     }
     
     //eventos

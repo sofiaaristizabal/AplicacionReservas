@@ -1,6 +1,7 @@
 package application.frontend;
 
 import java.net.URL;
+
 import java.io.IOException;
 
 import application.backend.LugarDeEvento;
@@ -46,6 +47,9 @@ public class ControllerScene4 implements Initializable{
     
     @FXML
     private Button reservar;
+    
+    @FXML
+    private Label code;
 	
     UserData userData = UserData.getUserData();
     
@@ -55,6 +59,7 @@ public class ControllerScene4 implements Initializable{
 	private String cedula;
 	private LocalDate myDate;
 	private String[] tiposReservas = {"Reserva de lugar", "Reserva de visita"};
+	String codigo;
 	
 	
    
@@ -66,15 +71,19 @@ public class ControllerScene4 implements Initializable{
 		try {
 			if(tipoReserva.getValue().equals("Reserva de lugar")) {
 				
-				app.crearReservaLugar(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
+			codigo = app.crearReservaLugar(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
 			} else {
 				
-				app.crearReservaVisita(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+			codigo = app.crearReservaVisita(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
 			}
 		} catch (NumberFormatException | LugarNotFoundException | UsuarioNotFoundException e ) {
 			System.out.println(e.getMessage());
 		
 		}
+		
+		System.out.println(app.buscarUsuario(cedula).getCedula());
+		System.out.println(app.buscarUsuario(cedula).getReservas()[0].getCodigo());
+		code.setText("El codigo de su reserva es: " + codigo);
 		
 	}
 	

@@ -5,6 +5,7 @@ import java.util.Date;
 
 import application.backend.LugarDeEvento;
 import application.backend.empresa.EmpresaPrestadoraServicio;
+import application.exceptions.ContratoNotFoundException;
 
 public class ReservaLugar extends Reserva {
 	

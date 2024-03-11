@@ -1,4 +1,4 @@
-package application.backend.reserva;
+package application.exceptions;
 
 public class ContratoNotFoundException extends Exception {
 

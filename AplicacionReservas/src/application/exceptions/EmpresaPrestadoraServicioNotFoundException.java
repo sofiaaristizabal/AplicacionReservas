@@ -1,4 +1,4 @@
-package application.backend;
+package application.exceptions;
 
 public class EmpresaPrestadoraServicioNotFoundException extends Exception {
 

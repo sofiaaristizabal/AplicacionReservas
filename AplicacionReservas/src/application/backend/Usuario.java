@@ -83,7 +83,16 @@ public class Usuario {
 		this.saldo = saldo;
 	}
 	
-//methods
+	
+    public Reserva[] getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(Reserva[] reservas) {
+		this.reservas = reservas;
+	}
+
+	//methods
 	public void agregarReserva(Reserva e1)
 	{
 		Reserva nuevaReserva = e1;
@@ -93,22 +102,25 @@ public class Usuario {
 		
 	}
 	
-	public void agregarReservaLugar(int cantidad, LugarDeEvento e, LocalDate fecha)
+	public String agregarReservaLugar(int cantidad, LugarDeEvento e, LocalDate fecha)
 	{
 		Reserva nuevaReserva = new ReservaLugar(e, fecha, cantidad);
 		
 		reservas = Arrays.copyOf(reservas, reservas.length+1);
 		reservas[reservas.length-1] = nuevaReserva;
 		
+		return nuevaReserva.getCodigo();
+		
 	}
 	
-	public void agregarReservaVisita(String hora, LugarDeEvento e, LocalDate fecha)
+	public String agregarReservaVisita(String hora, LugarDeEvento e, LocalDate fecha)
 	{
 		Reserva nuevaReserva = new ReservaVisita(e, fecha, hora);
 		
 		reservas = Arrays.copyOf(reservas, reservas.length+1);
 		reservas[reservas.length-1] = nuevaReserva;
-		
+	
+		return nuevaReserva.getCodigo();
 	}
 	
 	public int buscarIndexReserva(String codigo)
@@ -139,6 +151,8 @@ public class Usuario {
 	
 	
 	}
+
+
 
 	
 	
