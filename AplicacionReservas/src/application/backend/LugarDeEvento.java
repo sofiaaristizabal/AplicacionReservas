@@ -1,6 +1,8 @@
 package application.backend;
 
-public class LugarDeEvento {
+import java.io.Serializable;
+
+public class LugarDeEvento implements Serializable {
 
 	private String nombre;
 	private String codigo;

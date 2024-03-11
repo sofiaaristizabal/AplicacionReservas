@@ -1,7 +1,8 @@
 package application.backend.empresa;
 
+import java.io.Serializable;
 
-public class EmpresaPrestadoraServicio {
+public class EmpresaPrestadoraServicio implements Serializable {
     protected String nombre;
     protected String codigo;
     protected double basico;

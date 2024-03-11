@@ -1,11 +1,12 @@
 package application.backend.reserva;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
 import application.backend.LugarDeEvento;
 
-public abstract class Reserva {
+public abstract class Reserva implements Serializable {
 	
 	protected String codigo;
 	//String de placeholder

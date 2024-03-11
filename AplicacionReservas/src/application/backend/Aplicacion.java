@@ -1,5 +1,6 @@
 package application.backend;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 import java.util.Arrays;
@@ -23,6 +24,7 @@ public class Aplicacion {
     private Usuario[] usuarios;
     private LugarDeEvento[] lugaresEventos;
     private EmpresaPrestadoraServicio[] empresaPrestadoraServicio;
+    private Ficheros archivos = new Ficheros();
 
 //constructors
     public static Aplicacion getAplicacion(){
@@ -244,5 +246,37 @@ public class Aplicacion {
     		((ReservaLugar) e).agregarContrato(empresa, fechaEvento, tarifaPagar);
     		
     	}
+    }
+    
+//metodos de ficheros
+    
+    public void crearCarpeta() {
+    	archivos.crearCarpeta();
+    }
+    
+    //los metodos de cargar sobreescriben el array con lo que se tenga en los archivos
+    public void cargarUsuarios() throws ClassNotFoundException, IOException {
+    	usuarios = archivos.cargarUsuarios(usuarios);
+    }
+    
+    public void cargarLugares() throws ClassNotFoundException, IOException {
+    	lugaresEventos = archivos.cargarLugaresEvento(lugaresEventos);
+    }
+    
+    public void cargarEmpresas() throws ClassNotFoundException, IOException {
+    	empresaPrestadoraServicio = archivos.cargarEmpresasServicio(empresaPrestadoraServicio);
+    }
+    
+    //los metodos de escribir guardan en el archivo
+    public void escribirUsuarios() throws ClassNotFoundException, IOException {
+    	archivos.escribirUsuarios(usuarios);
+    }
+    
+    public void escribirLugares() throws ClassNotFoundException, IOException {
+    	archivos.escribirLugaresEvento(lugaresEventos);
+    }
+    
+    public void escribirEmpresas() throws ClassNotFoundException, IOException {
+    	archivos.escribirEmpresasServicio(empresaPrestadoraServicio);
     }
 }
