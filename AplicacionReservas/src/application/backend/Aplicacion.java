@@ -20,23 +20,28 @@ import application.exceptions.UsuarioNotFoundException;
 public class Aplicacion {
 
 //attributes	
-	private static Aplicacion app = new Aplicacion();
+	private static Aplicacion app;
     private Usuario[] usuarios;
     private LugarDeEvento[] lugaresEventos;
     private EmpresaPrestadoraServicio[] empresaPrestadoraServicio;
     private Ficheros archivos = new Ficheros();
 
 //constructors
-    public static Aplicacion getAplicacion(){
+    public static Aplicacion getAplicacion() throws ClassNotFoundException, IOException{
+    	if (app == null)
+    		app = new Aplicacion();
     	return app;
     }
     
     //inicializarlo leyendo fichero 
     
-    private Aplicacion() {
+    private Aplicacion() throws ClassNotFoundException, IOException {
     	usuarios = new Usuario[0];
     	lugaresEventos = new LugarDeEvento[0];
     	empresaPrestadoraServicio = new EmpresaPrestadoraServicio[0];
+    	this.cargarEmpresas();
+    	this.cargarLugares();
+    	this.cargarUsuarios();
     }
  
 //accessors
