@@ -17,7 +17,7 @@ public class Usuario {
 	private String correo;
 	private double presupuesto;
 	private double saldo;
-	private Reserva[] reservas = new Reserva[0];
+	private Reserva[] reservas;
 	
 	
 	
@@ -31,6 +31,7 @@ public class Usuario {
 		this.correo = correo;
 		this.presupuesto = presupuesto;
 		this.saldo = saldo;
+		reservas = new Reserva[0];
 	}
 	
 //accessors
@@ -93,14 +94,7 @@ public class Usuario {
 	}
 
 	//methods
-	public void agregarReserva(Reserva e1)
-	{
-		Reserva nuevaReserva = e1;
-		
-		reservas = Arrays.copyOf(reservas, reservas.length+1);
-		reservas[reservas.length-1] = nuevaReserva;
-		
-	}
+	
 	
 	public String agregarReservaLugar(int cantidad, LugarDeEvento e, LocalDate fecha)
 	{
