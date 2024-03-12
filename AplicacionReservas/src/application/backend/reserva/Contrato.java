@@ -1,11 +1,12 @@
 package application.backend.reserva;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import application.backend.empresa.EmpresaPrestadoraServicio;
 
-public class Contrato {
+public class Contrato implements Serializable {
 	
 	private String codigo;
 	private EmpresaPrestadoraServicio empresa;

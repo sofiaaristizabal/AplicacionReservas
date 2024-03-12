@@ -1,4 +1,5 @@
 package application.backend;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -7,7 +8,7 @@ import application.backend.reserva.Reserva;
 import application.backend.reserva.ReservaLugar;
 import application.backend.reserva.ReservaVisita;
 
-public class Usuario {
+public class Usuario implements Serializable  {
 	
 //attributs
 	private String nombre;

@@ -1,5 +1,6 @@
 package application.backend;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 import java.util.Arrays;
@@ -19,22 +20,28 @@ import application.exceptions.UsuarioNotFoundException;
 public class Aplicacion {
 
 //attributes	
-	private static Aplicacion app = new Aplicacion();
+	private static Aplicacion app;
     private Usuario[] usuarios;
     private LugarDeEvento[] lugaresEventos;
     private EmpresaPrestadoraServicio[] empresaPrestadoraServicio;
+    private Ficheros archivos = new Ficheros();
 
 //constructors
-    public static Aplicacion getAplicacion(){
+    public static Aplicacion getAplicacion() throws ClassNotFoundException, IOException{
+    	if (app == null)
+    		app = new Aplicacion();
     	return app;
     }
     
     //inicializarlo leyendo fichero 
     
-    private Aplicacion() {
+    private Aplicacion() throws ClassNotFoundException, IOException {
     	usuarios = new Usuario[0];
     	lugaresEventos = new LugarDeEvento[0];
     	empresaPrestadoraServicio = new EmpresaPrestadoraServicio[0];
+    	this.cargarEmpresas();
+    	this.cargarLugares();
+    	this.cargarUsuarios();
     }
  
 //accessors
@@ -244,5 +251,37 @@ public class Aplicacion {
     		((ReservaLugar) e).agregarContrato(empresa, fechaEvento, tarifaPagar);
     		
     	}
+    }
+    
+//metodos de ficheros
+    
+    public void crearCarpeta() {
+    	archivos.crearCarpeta();
+    }
+    
+    //los metodos de cargar sobreescriben el array con lo que se tenga en los archivos
+    public void cargarUsuarios() throws ClassNotFoundException, IOException {
+    	usuarios = archivos.cargarUsuarios(usuarios);
+    }
+    
+    public void cargarLugares() throws ClassNotFoundException, IOException {
+    	lugaresEventos = archivos.cargarLugaresEvento(lugaresEventos);
+    }
+    
+    public void cargarEmpresas() throws ClassNotFoundException, IOException {
+    	empresaPrestadoraServicio = archivos.cargarEmpresasServicio(empresaPrestadoraServicio);
+    }
+    
+    //los metodos de escribir guardan en el archivo
+    public void escribirUsuarios() throws ClassNotFoundException, IOException {
+    	archivos.escribirUsuarios(usuarios);
+    }
+    
+    public void escribirLugares() throws ClassNotFoundException, IOException {
+    	archivos.escribirLugaresEvento(lugaresEventos);
+    }
+    
+    public void escribirEmpresas() throws ClassNotFoundException, IOException {
+    	archivos.escribirEmpresasServicio(empresaPrestadoraServicio);
     }
 }
