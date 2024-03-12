@@ -1,5 +1,6 @@
 package application.frontend;
 
+import java.io.IOException;
 import java.util.*;
 
 import application.backend.Aplicacion;
@@ -28,10 +29,14 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		
-      Aplicacion app = Aplicacion.getAplicacion();
+      Aplicacion app = null;
+	
+      try {
+		app = Aplicacion.getAplicacion();
+	} catch (ClassNotFoundException | IOException e) {
 		
-     
-		
+		e.printStackTrace();
+	}
 		
 		//lugares de evento iniciales
 		

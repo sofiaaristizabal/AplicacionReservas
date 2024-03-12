@@ -47,14 +47,24 @@ public class ControllerMain {
 	TextField saldo;
 	
 	UserData userData = UserData.getUserData();
-	
-	Aplicacion app = Aplicacion.getAplicacion();
+    
+	private Aplicacion app = null;
+
 	Button login;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	public void login(ActionEvent event) throws IOException {
+		
+		
+		
+	      try {
+			app = Aplicacion.getAplicacion();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
 		
 		String username = nameTextField.getText();
 		

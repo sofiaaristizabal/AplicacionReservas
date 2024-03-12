@@ -53,8 +53,7 @@ public class ControllerScene4 implements Initializable{
 	
     UserData userData = UserData.getUserData();
     
-	private Aplicacion app = Aplicacion.getAplicacion();
-	private LugarDeEvento [] lugares = app.getLugaresEventos();
+	private LugarDeEvento [] lugares;
 	private String [] nombres;
 	private String cedula;
 	private LocalDate myDate;
@@ -66,6 +65,15 @@ public class ControllerScene4 implements Initializable{
 
 	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException {
 
+		Aplicacion app = null;
+		
+	      try {
+			app = Aplicacion.getAplicacion();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+		
 		cedula = userData.getCedula();
 		
 		try {
@@ -89,6 +97,17 @@ public class ControllerScene4 implements Initializable{
 	
 	
     public void obtenerNombres() {
+    	
+    	Aplicacion app = null;
+		
+	      try {
+			app = Aplicacion.getAplicacion();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+	      
+	      lugares = app.getLugaresEventos();
 		
 		nombres = new String[lugares.length];
 		for(int i = 0; i < lugares.length; i++) {

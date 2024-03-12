@@ -39,6 +39,7 @@ public class Aplicacion {
     	usuarios = new Usuario[0];
     	lugaresEventos = new LugarDeEvento[0];
     	empresaPrestadoraServicio = new EmpresaPrestadoraServicio[0];
+    	archivos.crearCarpeta();
     	this.cargarEmpresas();
     	this.cargarLugares();
     	this.cargarUsuarios();

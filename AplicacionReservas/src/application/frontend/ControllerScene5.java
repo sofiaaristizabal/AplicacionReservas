@@ -31,9 +31,6 @@ public class ControllerScene5 implements Initializable{
 	@FXML
 	private ListView<String> myListView;
 	
-	
-	private Aplicacion app = Aplicacion.getAplicacion();
-	
 	@FXML
 	private Label basico;
 	@FXML
@@ -50,7 +47,7 @@ public class ControllerScene5 implements Initializable{
 	@FXML
 	private Label variable3;
 	
-	private EmpresaPrestadoraServicio[] EmpresasPrestadorasDeServicios = app.getEmpresaPrestadoraServicio();
+	private EmpresaPrestadoraServicio[] EmpresasPrestadorasDeServicios;
 	private String[] empresas;
 	private String currentBasico;
 	private String currentPremium;
@@ -71,6 +68,17 @@ public class ControllerScene5 implements Initializable{
 	
 	
     public void obtenerNombres() {
+    	
+    	Aplicacion app = null;
+		
+	      try {
+			app = Aplicacion.getAplicacion();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+	      
+	    EmpresasPrestadorasDeServicios = app.getEmpresaPrestadoraServicio();
 		
 		empresas = new String[EmpresasPrestadorasDeServicios.length];
 		for(int i = 0; i < EmpresasPrestadorasDeServicios.length; i++) {
@@ -91,6 +99,14 @@ public class ControllerScene5 implements Initializable{
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 				
+				Aplicacion app = null;
+				
+			      try {
+					app = Aplicacion.getAplicacion();
+				} catch (ClassNotFoundException | IOException e) {
+					
+					e.printStackTrace();
+				}
 				
 				
 			try {

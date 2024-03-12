@@ -2,6 +2,7 @@ package application.frontend;
 
 import java.io.IOException;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.backend.Aplicacion;
@@ -33,8 +34,8 @@ public class ControllerScene3 implements Initializable{
 	@FXML
 	private Label PrecioPorHora;
 	
-	private Aplicacion app = Aplicacion.getAplicacion();
-	private LugarDeEvento[] lugaresEventos = app.getLugaresEventos();
+	
+	private LugarDeEvento[] lugaresEventos;
 	private String[] nombres;
 	private String currentCapacidad;
 	private String currentUbicacion;
@@ -51,6 +52,17 @@ public class ControllerScene3 implements Initializable{
 	
 	public void obtenerNombres() {
 		
+		Aplicacion app = null;
+		
+	      try {
+			app = Aplicacion.getAplicacion();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+	    lugaresEventos = app.getLugaresEventos(); 
+	      
 		nombres = new String[lugaresEventos.length];
 		for(int i = 0; i < lugaresEventos.length; i++) {
 			nombres[i] = lugaresEventos[i].getNombre();
@@ -62,6 +74,7 @@ public class ControllerScene3 implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		
 		obtenerNombres();
 		
 		myListView.getItems().addAll(nombres);
@@ -72,7 +85,14 @@ public class ControllerScene3 implements Initializable{
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 				
+				Aplicacion app = null;
 				
+			      try {
+					app = Aplicacion.getAplicacion();
+				} catch (ClassNotFoundException | IOException e) {
+					
+					e.printStackTrace();
+				}
 				
 				try {
 					
