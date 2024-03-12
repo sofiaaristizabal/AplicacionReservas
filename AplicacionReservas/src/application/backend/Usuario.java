@@ -10,81 +10,140 @@ import application.backend.reserva.ReservaVisita;
 
 public class Usuario implements Serializable  {
 	
-//attributs
-	private String nombre;
-	private String cedula;
-	private int edad;
-	private String telefono;
-	private String correo;
-	private double presupuesto;
-	private double saldo;
-	private Reserva[] reservas;
-	
-	
-	
-//constructors
-	public Usuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) 
-	{
-		this.nombre = nombre ;
-		this.cedula = cedula;
-		this.edad = edad;
-		this.telefono = telefono;
-		this.correo = correo;
-		this.presupuesto = presupuesto;
-		this.saldo = saldo;
-		reservas = new Reserva[0];
-	}
-	
-//accessors
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	public String getCedula() {
-		return cedula;
-	}
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
+//attributos
+    private String nombre;
+    private String cedula;
+    private int edad;
+    private String telefono;
+    private String correo;
+    private double presupuesto;
+    private double saldo;
+    private Reserva[] reservas = new Reserva[0];
 
-	public int getEdad() {
-		return edad;
-	}
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
+    // Constructor
+    public Usuario(String nombre, String cedula, int edad, String telefono, String correo, double presupuesto, double saldo) {
+        validarNombre(nombre);
+        validarCedula(cedula);
+        validarEdad(edad);
+        validarTelefono(telefono);
+        validarCorreo(correo);
+        validarPresupuesto(presupuesto);
+        validarSaldo(saldo);
 
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.presupuesto = presupuesto;
+        this.saldo = saldo;
+    }
 
-	public String getCorreo() {
-		return correo;
-	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+    private void validarNombre(String nombre) {
+        if (nombre == null || nombre.isEmpty() || nombre.matches(".*\\d.*")) {
+            throw new IllegalArgumentException("El nombre no es válido.");
+        }
+    }
 
-	public double getPresupuesto() {
-		return presupuesto;
-	}
-	public void setPresupuesto(double presupuesto) {
-		this.presupuesto = presupuesto;
-	}
+    private void validarCedula(String cedula) {
+        if (cedula == null || cedula.isEmpty() || !cedula.matches("\\d+")) {
+            throw new IllegalArgumentException("La cédula no es válida.");
+        }
+    }
 
-	public double getSaldo() {
-		return saldo;
-	}
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-	
+    private void validarEdad(int edad) {
+        if (edad < 0 || edad > 150) {
+            throw new IllegalArgumentException("La edad no es válida.");
+        }
+    }
+
+    private void validarTelefono(String telefono) {
+        if (telefono == null || telefono.isEmpty()) {
+            throw new IllegalArgumentException("El teléfono no es válido.");
+        }
+    }
+
+    private void validarCorreo(String correo) {
+        if (correo == null || correo.isEmpty()) {
+            throw new IllegalArgumentException("El correo no es válido.");
+        }
+    }
+
+    private void validarPresupuesto(double presupuesto) {
+        if (presupuesto < 0) {
+            throw new IllegalArgumentException("El presupuesto no es válido.");
+        }
+    }
+
+    private void validarSaldo(double saldo) {
+        if (saldo < 0) {
+            throw new IllegalArgumentException("El saldo no es válido.");
+        }
+    }
+
+    // Métodos de acceso (getters y setters)
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        validarNombre(nombre);
+        this.nombre = nombre;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        validarCedula(cedula);
+        this.cedula = cedula;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        validarEdad(edad);
+        this.edad = edad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        validarTelefono(telefono);
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        validarCorreo(correo);
+        this.correo = correo;
+    }
+
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(double presupuesto) {
+        validarPresupuesto(presupuesto);
+        this.presupuesto = presupuesto;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        validarSaldo(saldo);
+        this.saldo = saldo;
+    }
 	
     public Reserva[] getReservas() {
 		return reservas;
