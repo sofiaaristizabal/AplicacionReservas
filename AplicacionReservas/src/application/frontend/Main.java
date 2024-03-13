@@ -1,5 +1,6 @@
 package application.frontend;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -30,6 +31,16 @@ public class Main extends Application {
 		}
 		
       Aplicacion app = null;
+      
+      try {
+    	  app.cargarEmpresas();
+    	  app.cargarUsuarios();
+    	  app.cargarLugares();
+      }catch(FileNotFoundException e) {
+    	  System.out.println("no se encontro el archivo");
+      }catch(IOException e){ 
+    	  System.out.println("no se pudo leer el archivo");
+      }
 	
       try {
 		app = Aplicacion.getAplicacion();

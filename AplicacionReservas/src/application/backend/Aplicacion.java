@@ -27,7 +27,7 @@ public class Aplicacion {
     private Ficheros archivos = new Ficheros();
 
 //constructors
-    public static Aplicacion getAplicacion() throws ClassNotFoundException, IOException{
+    public static Aplicacion getAplicacion(){
     	if (app == null)
     		app = new Aplicacion();
     	return app;
@@ -35,14 +35,12 @@ public class Aplicacion {
     
     //inicializarlo leyendo fichero 
     
-    private Aplicacion() throws ClassNotFoundException, IOException {
+    private Aplicacion()  {
     	usuarios = new Usuario[0];
     	lugaresEventos = new LugarDeEvento[0];
     	empresaPrestadoraServicio = new EmpresaPrestadoraServicio[0];
-    	archivos.crearCarpeta();
-    	this.cargarEmpresas();
-    	this.cargarLugares();
-    	this.cargarUsuarios();
+    	
+    	
     }
  
 //accessors
