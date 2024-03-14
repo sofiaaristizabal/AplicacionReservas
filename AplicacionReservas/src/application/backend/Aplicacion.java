@@ -237,18 +237,26 @@ public class Aplicacion {
         	this.setEmpresaPrestadoraServicio(empresaPrestadoraServicio);
     }
     
+    //Metodo para hallar el costo final de una reserva
+    
+    public double calcularCostoFinal(String cedula, String codigo) throws ReservaNotFoundException, UsuarioNotFoundException {
+    	
+    	return buscarUsuario(cedula).calcularCostoReserva(codigo);
+    	
+    }
+    
     //contratos
     
     //tirar error
     
-    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, Date fechaEvento, double tarifaPagar) throws UsuarioNotFoundException, ReservaNotFoundException {
+    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, LocalDate fechaEvento, String plan) throws UsuarioNotFoundException, ReservaNotFoundException {
     	
     	Usuario u = buscarUsuario(cedula);
     	Reserva e = u.buscarReserva(codigo);
     	
     	if(e instanceof ReservaLugar) {
     		
-    		((ReservaLugar) e).agregarContrato(empresa, fechaEvento, tarifaPagar);
+    		((ReservaLugar) e).agregarContrato(empresa, fechaEvento,plan);
     		
     	}
     }
@@ -284,4 +292,6 @@ public class Aplicacion {
     public void escribirEmpresas() throws ClassNotFoundException, IOException {
     	archivos.escribirEmpresasServicio(empresaPrestadoraServicio);
     }
+    
+    
 }

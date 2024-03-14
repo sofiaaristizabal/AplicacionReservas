@@ -201,9 +201,24 @@ public class Usuario implements Serializable  {
 		return reservas[i];
 	}
 	
-	
+     public double calcularCostoReserva(String codigo) throws ReservaNotFoundException {
+    	 
+    	 int i = buscarIndexReserva(codigo);
+    	 double costoFinal = 0;
+    	 
+    	 ReservaLugar r = (ReservaLugar)reservas[i];
+		 costoFinal+= r.getLugarEvento().getPrecioPorEvento();
+    	 
+    	 for(int j = 0; j < r.getContratos().length; j++) {
+    		 	
+    	 costoFinal+= r.getContratos()[j].getTarifaPagar();
+          
+    	 }
+    	 return costoFinal;
 	
 	}
+     
+}
 
 
 

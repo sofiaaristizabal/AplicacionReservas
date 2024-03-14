@@ -87,7 +87,7 @@ public class ControllerScene4 implements Initializable{
 		
 		}
 		
-		code.setText(" ");
+		code.setText("En ver reservas puede observar la creación de su reserva");
 		
 	}
 	

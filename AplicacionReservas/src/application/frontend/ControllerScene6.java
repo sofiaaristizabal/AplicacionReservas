@@ -7,10 +7,13 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import application.backend.Aplicacion;
+import application.backend.reserva.Contrato;
 import application.backend.reserva.Reserva;
 import application.backend.reserva.ReservaLugar;
 import application.backend.reserva.ReservaVisita;
 import application.backend.LugarDeEvento;
+import application.backend.Usuario;
+import application.exceptions.ContratoNotFoundException;
 import application.exceptions.LugarNotFoundException;
 import application.exceptions.ReservaNotFoundException;
 import application.exceptions.UsuarioNotFoundException;
@@ -34,6 +37,9 @@ public class ControllerScene6 implements Initializable{
 	private ListView<String> myListView;
 	
 	@FXML
+	private ListView<String> contratosListView;
+	
+	@FXML
 	private Label lugarEvento;
 	@FXML
 	private Label fechaGeneracion;
@@ -49,12 +55,18 @@ public class ControllerScene6 implements Initializable{
 	private String currentFechaGeneracion;
 	private String currentFechaReserva;
 	private String currentVariable;
+	private double currentCostoFinal;
 	private UserData userData = UserData.getUserData();
 	
 	@FXML
 	private Button inicio;
 	@FXML
 	private Button generarReserva;
+	@FXML
+	private Label empresaContratada;
+	
+	@FXML
+	private Label costoFinalReserva;
 	
 	private Stage stage;
 	private Scene scene;
@@ -81,7 +93,13 @@ public class ControllerScene6 implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		initialize1();
 		
+	}
+	
+	public void initialize1() {
+		
+
 		obtenerCodigos();
 		
 		myListView.getItems().addAll(codigos);
@@ -91,6 +109,44 @@ public class ControllerScene6 implements Initializable{
 
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				
+				ReservaLugar l;
+				try {
+					l = (ReservaLugar) app.buscarUsuario(userData.getCedula()).buscarReserva(myListView.getSelectionModel().getSelectedItem());
+					Contrato[] contratos = l.getContratos();
+					String[] numeros = new String[contratos.length];
+					for(int i = 0; i < contratos.length; i++) {
+						numeros[i] = contratos[i].getCodigo().toString();
+					} 
+					
+					contratosListView.getItems().addAll(numeros);
+					
+					contratosListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+						@Override
+						public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+							
+							ReservaLugar r;
+							Contrato n = null;
+							try {
+								r = (ReservaLugar) app.buscarUsuario(userData.getCedula()).buscarReserva(myListView.getSelectionModel().getSelectedItem());
+							    n = r.buscarContrato(contratosListView.getSelectionModel().getSelectedItem());
+							} catch (ReservaNotFoundException | UsuarioNotFoundException | ContratoNotFoundException e) {
+				
+								e.printStackTrace();
+							}
+							
+							empresaContratada.setText("La empresa contratada fue: " + n.getEmpresa().getNombre());
+							
+						}
+						
+					});
+					
+					
+				} catch (ReservaNotFoundException | UsuarioNotFoundException e1) {
+					
+					e1.printStackTrace();
+				}
 				
 				
 				
@@ -103,11 +159,14 @@ public class ControllerScene6 implements Initializable{
 					currentFechaGeneracion = sdf.format(app.buscarUsuario(userData.getCedula()).buscarReserva(myListView.getSelectionModel().getSelectedItem()).getFechaGeneracion());
 					LocalDate ld = app.buscarUsuario(userData.getCedula()).buscarReserva(myListView.getSelectionModel().getSelectedItem()).getFechaReserva();
 					currentFechaReserva = ld.toString();
+					
+					currentCostoFinal = app.calcularCostoFinal(userData.getCedula(), myListView.getSelectionModel().getSelectedItem());
+					
 					if (app.buscarUsuario(userData.getCedula()).buscarReserva(myListView.getSelectionModel().getSelectedItem()) instanceof ReservaLugar) {
 					 
 						ReservaLugar e = (ReservaLugar) app.buscarUsuario(userData.getCedula()).buscarReserva(myListView.getSelectionModel().getSelectedItem());
 						currentVariable = String.valueOf(e.getCantidadPersonas());
-						variable.setText("Cantidad de personas ppara el evento" + currentVariable);
+						variable.setText("Cantidad de personas para el evento" + currentVariable);
 						
 					} else {
 						
@@ -123,11 +182,16 @@ public class ControllerScene6 implements Initializable{
 				lugarEvento.setText("Lugar del evento: " + currentLugarEvento);
 				fechaGeneracion.setText("Fecha generacion reserva: " + currentFechaGeneracion);
 				fechaReserva.setText("Fecha del evento: "+ currentFechaReserva);
+				costoFinalReserva.setText("El costo final de la reserva es: " + currentCostoFinal);
 				
 			}
 			
 			
 		});
+	}
+	
+	public void initialize2() {
+		
 	}
 	
 	public void smithcInicio(ActionEvent event) throws IOException {
@@ -149,6 +213,23 @@ public class ControllerScene6 implements Initializable{
     public void switchGenerarReserva(ActionEvent event) throws IOException {
 		
     	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene4.fxml"));
+		root = loader.load();
+
+		Node node;
+		node = (Node) event.getSource();
+		stage = (Stage) node.getScene().getWindow(); 
+		
+		String css = this.getClass().getResource("application.css").toExternalForm();
+		
+		scene = new Scene(root);
+		scene.getStylesheets().add(css);
+		stage.setScene(scene);
+		stage.show();
+	}
+    
+     public void switchAddContrato(ActionEvent event) throws IOException {
+		
+    	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene7.fxml"));
 		root = loader.load();
 
 		Node node;

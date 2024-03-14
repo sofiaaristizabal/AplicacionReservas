@@ -2,6 +2,7 @@ package application.backend.reserva;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import application.backend.empresa.EmpresaPrestadoraServicio;
@@ -11,17 +12,20 @@ public class Contrato implements Serializable {
 	private String codigo;
 	private EmpresaPrestadoraServicio empresa;
 	private String fechaGeneracion;
-	private Date fechaEvento;
+	private LocalDate fechaEvento;
+	private String plan;
 	private double tarifaPagar;
 	
 	
-	public Contrato(EmpresaPrestadoraServicio empresa, Date fechaEvento, double tarifaPagar) {
+	public Contrato(EmpresaPrestadoraServicio empresa, LocalDate fechaEvento, String plan) {
 		super();
 		this.empresa = empresa;
 		this.fechaEvento = fechaEvento;
-		this.tarifaPagar = tarifaPagar;
+		this.plan = plan;
 		generarFechaGeneracion();
 		generarCodigo();
+		this.tarifaPagar = encontarTarifaPagar(plan);
+		
 		
 	}
 	
@@ -47,6 +51,25 @@ public class Contrato implements Serializable {
 		
 		this.codigo = code.toString();
 	}
+	
+	public double encontarTarifaPagar(String plan) {
+		
+		double tarifa = 0;
+		
+		if(plan.equalsIgnoreCase("Basico")) {
+			tarifa = empresa.getBasico();
+		} else if(plan.equalsIgnoreCase("Premium")) {
+			tarifa = empresa.getPremium();
+		} else if(plan.equalsIgnoreCase("Deluxe")) {
+			tarifa = empresa.getDeluxe();
+		}
+		
+		return tarifa;
+	}
+	
+	public double getTarifaPagar() {
+		return tarifaPagar;
+	}
 
 
 	public EmpresaPrestadoraServicio getEmpresa() {
@@ -54,18 +77,13 @@ public class Contrato implements Serializable {
 	}
 
 
-	public Date getFechaEvento() {
+	public LocalDate getFechaEvento() {
 		return fechaEvento;
 	}
 
 
-	public void setFechaEvento(Date fechaEvento) {
+	public void setFechaEvento(LocalDate fechaEvento) {
 		this.fechaEvento = fechaEvento;
-	}
-
-
-	public double getTarifaPagar() {
-		return tarifaPagar;
 	}
 
 

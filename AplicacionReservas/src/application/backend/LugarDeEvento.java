@@ -7,7 +7,7 @@ public class LugarDeEvento implements Serializable {
 	private String nombre;
 	private String codigo;
 	private String ubicacion;
-	private double precioPorHora;
+	private double precioPorEvento;
 	private int capacidad;
 	private String entorno;
 	private String descripcion;
@@ -19,7 +19,7 @@ public class LugarDeEvento implements Serializable {
 		super();
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
-		this.precioPorHora = precioPorHora;
+		this.precioPorEvento = precioPorHora;
 		this.capacidad = capacidad;
 		this.entorno = entorno;
 		this.descripcion = descripcion;
@@ -70,13 +70,13 @@ public class LugarDeEvento implements Serializable {
 	}
 
 
-	public double getPrecioPorHora() {
-		return precioPorHora;
+	public double getPrecioPorEvento() {
+		return precioPorEvento;
 	}
 
 
-	public void setPrecioPorHora(double precioPorHora) {
-		this.precioPorHora = precioPorHora;
+	public void setPrecioPorEvento(double precioPorHora) {
+		this.precioPorEvento = precioPorHora;
 	}
 
 

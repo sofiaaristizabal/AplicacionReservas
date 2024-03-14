@@ -18,9 +18,9 @@ public class ReservaLugar extends Reserva {
 		contratos = new Contrato[0];
 	}
 	
-	public void agregarContrato(EmpresaPrestadoraServicio empresa, Date fecha, double tarifa) {
+	public void agregarContrato(EmpresaPrestadoraServicio empresa, LocalDate fecha, String plan) {
 		
-		Contrato contrato = new Contrato(empresa, fecha, tarifa);
+		Contrato contrato = new Contrato(empresa, fecha, plan);
 		
 		contratos = Arrays.copyOf(contratos,contratos.length+1);
 		contratos[contratos.length-1] = contrato;

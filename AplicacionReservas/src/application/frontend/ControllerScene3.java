@@ -39,7 +39,7 @@ public class ControllerScene3 implements Initializable{
 	private String[] nombres;
 	private String currentCapacidad;
 	private String currentUbicacion;
-	private String currentPrecioPorHora;
+	private String currentPrecioPorEvento;
 	
 	@FXML
 	private Button inicio;
@@ -86,7 +86,7 @@ public class ControllerScene3 implements Initializable{
 					
 					currentCapacidad = String.valueOf(app.buscarLugarEvento(myListView.getSelectionModel().getSelectedItem()).getCapacidad());
 					currentUbicacion = app.buscarLugarEvento(myListView.getSelectionModel().getSelectedItem()).getUbicacion();
-					currentPrecioPorHora = String.valueOf(app.buscarLugarEvento(myListView.getSelectionModel().getSelectedItem()).getPrecioPorHora());
+					currentPrecioPorEvento = String.valueOf(app.buscarLugarEvento(myListView.getSelectionModel().getSelectedItem()).getPrecioPorEvento());
 				} catch (LugarNotFoundException e) {
 					
 					e.printStackTrace();
@@ -94,7 +94,7 @@ public class ControllerScene3 implements Initializable{
 				
 				capacidad.setText("Capacidad: " + currentCapacidad);
 				ubicacion.setText(currentUbicacion);
-				PrecioPorHora.setText("Precio por hora: "+ currentPrecioPorHora);
+				PrecioPorHora.setText("Precio por evento: "+ currentPrecioPorEvento);
 				
 			}
 			

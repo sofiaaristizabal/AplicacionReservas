@@ -166,7 +166,7 @@ public class ControllerScene5 implements Initializable{
 	
     public void switchGenerarContrato(ActionEvent event) throws IOException {
 		
-    	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene4.fxml"));
+    	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene7.fxml"));
 		root = loader.load();
 
 		Node node;
