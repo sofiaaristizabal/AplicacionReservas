@@ -62,6 +62,8 @@ public class ControllerScene5 implements Initializable{
 	@FXML
 	private Button generarReserva;
 	
+	private Aplicacion app = Aplicacion.getAplicacion(); 
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -69,14 +71,6 @@ public class ControllerScene5 implements Initializable{
 	
     public void obtenerNombres() {
     	
-    	Aplicacion app = null;
-		
-	      try {
-			app = Aplicacion.getAplicacion();
-		} catch (ClassNotFoundException | IOException e) {
-			
-			e.printStackTrace();
-		}
 	      
 	    EmpresasPrestadorasDeServicios = app.getEmpresaPrestadoraServicio();
 		
@@ -98,15 +92,6 @@ public class ControllerScene5 implements Initializable{
 
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-				
-				Aplicacion app = null;
-				
-			      try {
-					app = Aplicacion.getAplicacion();
-				} catch (ClassNotFoundException | IOException e) {
-					
-					e.printStackTrace();
-				}
 				
 				
 			try {

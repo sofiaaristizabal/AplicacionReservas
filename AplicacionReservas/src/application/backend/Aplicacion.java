@@ -15,6 +15,7 @@ import application.backend.reserva.Reserva;
 import application.backend.reserva.ReservaLugar;
 import application.exceptions.EmpresaPrestadoraServicioNotFoundException;
 import application.exceptions.LugarNotFoundException;
+import application.exceptions.ReservaNotFoundException;
 import application.exceptions.UsuarioNotFoundException;
 
 public class Aplicacion {
@@ -135,23 +136,23 @@ public class Aplicacion {
     }
     
     
-    public String crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
+    public void crearReservaLugar(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, int cantidad) throws UsuarioNotFoundException {
 
     	int i = buscarUsuarioIndex(cedula);
     	
-    	String codigo =	usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
+    	usuarios[i].agregarReservaLugar(cantidad, lugar, fechaReserva);
     	
-    	return codigo;
+    
     
     }
     
-    public String crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) throws UsuarioNotFoundException {
+    public void crearReservaVisita(String cedula, LugarDeEvento lugar, LocalDate fechaReserva, String hora) throws UsuarioNotFoundException {
 
     	int i = buscarUsuarioIndex(cedula);
     	
-    	String codigo =	usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
+        usuarios[i].agregarReservaVisita(hora, lugar, fechaReserva);
     	
-    	return codigo;
+    	
     }
     
     //eventos
@@ -240,7 +241,7 @@ public class Aplicacion {
     
     //tirar error
     
-    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, Date fechaEvento, double tarifaPagar) throws UsuarioNotFoundException {
+    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, Date fechaEvento, double tarifaPagar) throws UsuarioNotFoundException, ReservaNotFoundException {
     	
     	Usuario u = buscarUsuario(cedula);
     	Reserva e = u.buscarReserva(codigo);

@@ -48,7 +48,7 @@ public class ControllerMain {
 	
 	UserData userData = UserData.getUserData();
     
-	private Aplicacion app = null;
+	private Aplicacion app = Aplicacion.getAplicacion();;
 
 	Button login;
 	private Stage stage;
@@ -58,13 +58,6 @@ public class ControllerMain {
 	public void login(ActionEvent event) throws IOException {
 		
 		
-		
-	      try {
-			app = Aplicacion.getAplicacion();
-		} catch (ClassNotFoundException | IOException e) {
-			
-			e.printStackTrace();
-		}
 		
 		String username = nameTextField.getText();
 		
@@ -98,22 +91,6 @@ public class ControllerMain {
 		userData.setPresupuesto(Double.parseDouble(presupuesto.getText()));
 		
 	}
-	
-	/*
-	public void guardar() {
-		
-       String ID = cedula.getText();
-		
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene4.fxml"));
-	    try {
-			root = loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		ControllerScene4 controllerScene4 = loader.getController();
-		System.out.println(ID);
-		controllerScene4.setCedula(ID);
-	}*/
 	
 	
 

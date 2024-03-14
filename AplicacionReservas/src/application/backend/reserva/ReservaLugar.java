@@ -66,6 +66,22 @@ public class ReservaLugar extends Reserva {
 		
 		contratos = cTemp;
 	}
+
+	public int getCantidadPersonas() {
+		return cantidadPersonas;
+	}
+
+	public void setCantidadPersonas(int cantidadPersonas) {
+		this.cantidadPersonas = cantidadPersonas;
+	}
+
+	public Contrato[] getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(Contrato[] contratos) {
+		this.contratos = contratos;
+	}
 	
 	
 

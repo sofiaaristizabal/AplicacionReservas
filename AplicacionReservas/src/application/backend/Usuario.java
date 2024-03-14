@@ -7,6 +7,7 @@ import application.backend.LugarDeEvento;
 import application.backend.reserva.Reserva;
 import application.backend.reserva.ReservaLugar;
 import application.backend.reserva.ReservaVisita;
+import application.exceptions.ReservaNotFoundException;
 
 public class Usuario implements Serializable  {
 	
@@ -156,46 +157,44 @@ public class Usuario implements Serializable  {
 	//methods
 	
 	
-	public String agregarReservaLugar(int cantidad, LugarDeEvento e, LocalDate fecha)
+	public void agregarReservaLugar(int cantidad, LugarDeEvento e, LocalDate fecha)
 	{
 		Reserva nuevaReserva = new ReservaLugar(e, fecha, cantidad);
 		
 		reservas = Arrays.copyOf(reservas, reservas.length+1);
 		reservas[reservas.length-1] = nuevaReserva;
 		
-		return nuevaReserva.getCodigo();
 		
 	}
 	
-	public String agregarReservaVisita(String hora, LugarDeEvento e, LocalDate fecha)
+	public void agregarReservaVisita(String hora, LugarDeEvento e, LocalDate fecha)
 	{
 		Reserva nuevaReserva = new ReservaVisita(e, fecha, hora);
 		
 		reservas = Arrays.copyOf(reservas, reservas.length+1);
 		reservas[reservas.length-1] = nuevaReserva;
 	
-		return nuevaReserva.getCodigo();
 	}
 	
-	public int buscarIndexReserva(String codigo)
+	public int buscarIndexReserva(String codigo) throws ReservaNotFoundException
 	{
+		
+		
 		int i = 0;
-		while((i<reservas.length) && !(reservas[i].getCodigo().equals(codigo)) )
+		while((i<reservas.length) && !((reservas[i].getCodigo()).toString().equals(codigo)) )
 		{
 			i++;
 		}
 		
-		if(reservas[i].getCodigo().equals(codigo))
+		if(i<reservas.length)
 		{
 			return i;
-		}else {
-			return -1;
-		}
+		}else throw new ReservaNotFoundException(codigo);
 		
 	}
 	
 	
-     public Reserva buscarReserva(String codigo) {
+     public Reserva buscarReserva(String codigo) throws ReservaNotFoundException {
 		
 		int i = buscarIndexReserva(codigo);
 		

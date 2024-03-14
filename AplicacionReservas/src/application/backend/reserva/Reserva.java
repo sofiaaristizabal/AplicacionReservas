@@ -8,11 +8,13 @@ import application.backend.LugarDeEvento;
 
 public abstract class Reserva implements Serializable {
 	
-	protected String codigo;
+	
 	//String de placeholder
 	protected LugarDeEvento lugarEvento;
 	protected Date fechaGeneracion;
 	protected LocalDate fechaReserva;
+	protected String password;
+	protected StringBuilder codigo;
 	
 	
 	public Reserva(LugarDeEvento lugarEvento, LocalDate fechaReserva) {
@@ -20,7 +22,9 @@ public abstract class Reserva implements Serializable {
 		this.lugarEvento = lugarEvento;
 		this.fechaReserva = fechaReserva;
         generarFecha();
+        
         generarCodigo();
+        System.out.println(codigo);
   
 	}
   
@@ -33,23 +37,23 @@ public abstract class Reserva implements Serializable {
 		
   }
   
+  
   public void generarCodigo() {
 		
 		String a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		
-		String code = "";
-		
-		for(int i = 0; i < 4; i++) {
-			
-			char caracter = a.charAt((int) (Math.random()*a.length()));
-			code.concat(Character.toString(caracter));
-		}
+		StringBuilder code = new StringBuilder();//Grandes
+		 
+        for (int i = 0; i < 4; i++) {
+            int indice = (int) (Math.random() * a.length());
+            code.append(a.charAt(indice));
+        }
 		
 		this.codigo = code;
 	}
 
 
-	public String getCodigo() {
+	public StringBuilder getCodigo() {
 		return codigo;
 	}
 

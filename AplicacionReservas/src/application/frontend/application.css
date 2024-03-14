@@ -76,3 +76,27 @@
 	-fx-text-fill:"DarkCyan";
 }
 
+#lugarEvento{
+	-fx-font-size:12;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+} 
+
+#fechaGeneracion{
+	-fx-font-size:12;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+}
+
+#fechaReserva{
+	-fx-font-size:12;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+}
+
+#variable{
+	-fx-font-size:12;
+	-fx-font-family:"Lucida Sans";
+	-fx-text-fill:"DarkCyan";
+}
+

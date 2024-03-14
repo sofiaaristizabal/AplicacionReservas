@@ -2,9 +2,11 @@ package application.frontend;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 import application.backend.Aplicacion;
+import application.backend.LugarDeEvento;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -17,7 +19,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
-			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Main.fxml"));
+			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene1.fxml"));
 			Parent root = (Parent) loader.load();
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -30,7 +32,9 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		
-      Aplicacion app = null;
+      Aplicacion app = Aplicacion.getAplicacion();;
+      
+      app.crearCarpeta();
       
       try {
     	  app.cargarEmpresas();
@@ -40,14 +44,12 @@ public class Main extends Application {
     	  System.out.println("no se encontro el archivo");
       }catch(IOException e){ 
     	  System.out.println("no se pudo leer el archivo");
-      }
-	
-      try {
-		app = Aplicacion.getAplicacion();
-	} catch (ClassNotFoundException | IOException e) {
-		
+      } catch (ClassNotFoundException e) {
 		e.printStackTrace();
 	}
+	
+		
+	
 		
 		//lugares de evento iniciales
 		
@@ -92,6 +94,7 @@ public class Main extends Application {
 	    app.agregarEmpDecoradora("Decoradores plus","458",true,80000,160000,300000,new String[]{"Estilo Hawaiano", "Estilo Matrimonio", "Despedida Soltero/a"},"Fiestas para todos",new String[]{"Muebles", "Sillas", "Carpas"});
 	    app.agregarEmpDecoradora("Decora todo","459",true,1000000,2000000,3500000,new String[]{"Fiesta de 15s", "Bar Mitzvá", "Cumpleaños"},"FestiEventos",new String[]{"Mesas", "Mobiliario de bar", "Mobiliario de iluminación"});
 
+	    
     
 	}
 	

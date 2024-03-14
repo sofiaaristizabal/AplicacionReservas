@@ -18,12 +18,15 @@ import application.backend.Aplicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ControllerScene4 implements Initializable{
 
@@ -53,60 +56,44 @@ public class ControllerScene4 implements Initializable{
 	
     UserData userData = UserData.getUserData();
     
+    private Aplicacion app  = Aplicacion.getAplicacion();
+    
 	private LugarDeEvento [] lugares;
 	private String [] nombres;
 	private String cedula;
 	private LocalDate myDate;
 	private String[] tiposReservas = {"Reserva de lugar", "Reserva de visita"};
-	String codigo;
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
 	
 	
    
 
 	public void generarReserva() throws NumberFormatException, LugarNotFoundException, UsuarioNotFoundException {
-
-		Aplicacion app = null;
-		
-	      try {
-			app = Aplicacion.getAplicacion();
-		} catch (ClassNotFoundException | IOException e) {
-			
-			e.printStackTrace();
-		}
 		
 		cedula = userData.getCedula();
 		
 		try {
 			if(tipoReserva.getValue().equals("Reserva de lugar")) {
 				
-			codigo = app.crearReservaLugar(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
+			app.crearReservaLugar(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, Integer.parseInt(nameTextField.getText()));
 			} else {
 				
-			codigo = app.crearReservaVisita(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
+			app.crearReservaVisita(this.cedula, app.buscarLugarEvento(lugaresEventos.getValue()), myDate, nameTextField.getText());
 			}
 		} catch (NumberFormatException | LugarNotFoundException | UsuarioNotFoundException e ) {
 			System.out.println(e.getMessage());
 		
 		}
 		
-		System.out.println(app.buscarUsuario(cedula).getCedula());
-		System.out.println(app.buscarUsuario(cedula).getReservas()[0].getCodigo());
-		code.setText("El codigo de su reserva es: " + codigo);
+		code.setText(" ");
 		
 	}
 	
 	
     public void obtenerNombres() {
     	
-    	Aplicacion app = null;
-		
-	      try {
-			app = Aplicacion.getAplicacion();
-		} catch (ClassNotFoundException | IOException e) {
-			
-			e.printStackTrace();
-		}
-	      
 	      lugares = app.getLugaresEventos();
 		
 		nombres = new String[lugares.length];
@@ -153,6 +140,21 @@ public class ControllerScene4 implements Initializable{
 		fecha.setText(myDate.toString());
 	}
 	
-	
+	 public void switchVerReservas(ActionEvent event) throws IOException {
+			
+	    	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Scene6.fxml"));
+			root = loader.load();
+
+			Node node;
+			node = (Node) event.getSource();
+			stage = (Stage) node.getScene().getWindow(); 
+			
+			String css = this.getClass().getResource("application.css").toExternalForm();
+			
+			scene = new Scene(root);
+			scene.getStylesheets().add(css);
+			stage.setScene(scene);
+			stage.show();
+		}
 	
 }

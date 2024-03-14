@@ -14,6 +14,26 @@ public class ReservaVisita extends Reserva {
 		super(lugarEvento, fechaReserva);
 		this.hora = hora;
 	}
+
+
+	public double getTiempoVisita() {
+		return tiempoVisita;
+	}
+
+
+	public void setTiempoVisita(double tiempoVisita) {
+		this.tiempoVisita = tiempoVisita;
+	}
+
+
+	public String getHora() {
+		return hora;
+	}
+
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 	
 	
 
