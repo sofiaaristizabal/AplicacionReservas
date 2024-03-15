@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.frontend.ControllerScene2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.frontend.ControllerScene2">
 	<children>
 		<ImageView blendMode="OVERLAY" fitHeight="165.0" fitWidth="275.0" layoutX="214.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
 			<image>
@@ -28,5 +28,8 @@
 		<Label alignment="CENTER" layoutX="85.0" layoutY="185.0" prefHeight="21.0" prefWidth="520.0" text="HAZLO INOLVIDABLE..." />
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddf5b77d" height="47.0" layoutX="-11.0" layoutY="41.0" stroke="TRANSPARENT" strokeType="INSIDE" width="706.0" />
 		<Button layoutX="393.0" layoutY="333.0" mnemonicParsing="false" onAction="#verEmpresasPrestadoresServicio" text="Ver empresas de servicios" />
+      <Button layoutX="599.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarAppConFicheros" text="close" />
+      <Label alignment="CENTER" layoutX="27.0" layoutY="414.0" prefHeight="21.0" prefWidth="630.0" text="Recuerde undir el boton &quot;close&quot; antes de salir " />
+      <Label alignment="CENTER" layoutX="20.0" layoutY="451.0" prefHeight="21.0" prefWidth="659.0" text="para que todos sus datos queden guardados " />
 	</children>
 </AnchorPane>

@@ -36,12 +36,27 @@ public class ControllerScene1 {
 	private Scene scene;
 	private Parent root;
 	
+	private UserData userData = UserData.getUserData();
 	private Aplicacion app = Aplicacion.getAplicacion();
 	
 	
 	public void iniciarSesion(ActionEvent event) throws IOException{
 		
 		String ID = cedula.getText();
+		
+		try {
+			userData.setCedula(app.buscarUsuario(ID).getCedula());
+			userData.setNombre(app.buscarUsuario(ID).getNombre());
+			userData.setEdad(app.buscarUsuario(ID).getEdad());
+			userData.setTelefono(app.buscarUsuario(ID).getTelefono());
+			userData.setCorreo(app.buscarUsuario(ID).getCorreo());
+			userData.setSaldo(app.buscarUsuario(ID).getSaldo());
+			userData.setPresupuesto(app.buscarUsuario(ID).getPresupuesto());
+		} catch (UsuarioNotFoundException e1) {
+			
+			e1.printStackTrace();
+		}
+		
 		try {
 			app.buscarUsuario(ID);
 			

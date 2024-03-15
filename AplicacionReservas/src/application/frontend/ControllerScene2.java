@@ -29,6 +29,8 @@ public class ControllerScene2 {
 	private Scene scene;
 	private Parent root;
 	
+	private Aplicacion app = Aplicacion.getAplicacion();
+	
 	public void displayName(String username) {
 		
 		nameLabel.setText("Bienvenid@ " + username + " a TuEvento");
@@ -68,4 +70,18 @@ public class ControllerScene2 {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+   public void cerrarAppConFicheros() {
+		
+		
+		try {
+			
+			app.escribirEmpresas();
+			app.escribirUsuarios();
+			app.escribirLugares();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+	} 
 }

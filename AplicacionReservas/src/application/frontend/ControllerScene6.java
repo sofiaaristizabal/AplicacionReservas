@@ -243,5 +243,19 @@ public class ControllerScene6 implements Initializable{
 		stage.setScene(scene);
 		stage.show();
 	}
+     
+     public void cerrarAppConFicheros() {
+ 		
+ 		
+ 		try {
+ 			
+ 			app.escribirEmpresas();
+ 			app.escribirUsuarios();
+ 			app.escribirLugares();
+ 		} catch (ClassNotFoundException | IOException e) {
+ 			
+ 			e.printStackTrace();
+ 		}
+ 	}
 	
 }

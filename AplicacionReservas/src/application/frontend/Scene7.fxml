@@ -19,7 +19,7 @@
       <Label layoutX="24.0" layoutY="337.0" prefHeight="21.0" prefWidth="314.0" text="Cual es la fecha del evento " />
       <DatePicker fx:id="seleccionarFecha" layoutX="365.0" layoutY="332.0" />
       <Button fx:id="generarContrato" layoutX="55.0" layoutY="440.0" mnemonicParsing="false" onAction="#generarContrato" text="Generar contrato " />
-      <Button layoutX="400.0" layoutY="21.0" mnemonicParsing="false" text="close" />
+      <Button layoutX="400.0" layoutY="21.0" mnemonicParsing="false" onAction="#cerrarAppConFicheros" text="close" />
       <Button layoutX="503.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchVerReservas" text="Volver a reservas " />
       <Label fx:id="fecha" alignment="CENTER" layoutX="353.0" layoutY="386.0" prefHeight="21.0" prefWidth="242.0" text="Fecha" />
       <Label layoutX="24.0" layoutY="239.0" prefHeight="21.0" prefWidth="291.0" text="Codigo de la reserva" />

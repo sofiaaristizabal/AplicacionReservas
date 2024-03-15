@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 import application.backend.*;
 import application.backend.reserva.*;
 import application.backend.empresa.*;
-import application.backend.LugarDeEvento;
 import application.exceptions.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -73,7 +72,7 @@ public class ControllerScene7 implements Initializable{
 			
 			app.agregarContrato(cedula, codigo.getText(), app.buscarEmpresaPrestadoraDeServicios(empresa.getValue()) , myDate, tipoPlan.getValue());
 			
-		} catch (NumberFormatException | UsuarioNotFoundException | ReservaNotFoundException | EmpresaPrestadoraServicioNotFoundException e ) {
+		} catch (NumberFormatException | UsuarioNotFoundException | ReservaNotFoundException | EmpresaPrestadoraServicioNotFoundException | ContratoNoPermitidoException e ) {
 			System.out.println(e.getMessage());
 		
 		}
@@ -167,5 +166,18 @@ public class ControllerScene7 implements Initializable{
 			stage.show();
 		}
 
+	 public void cerrarAppConFicheros() {
+			
+			
+			try {
+				
+				app.escribirEmpresas();
+				app.escribirUsuarios();
+				app.escribirLugares();
+			} catch (ClassNotFoundException | IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
 
 }

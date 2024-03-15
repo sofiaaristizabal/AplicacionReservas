@@ -16,5 +16,6 @@
       <Label fx:id="variable3" layoutX="17.0" layoutY="496.0" prefHeight="21.0" prefWidth="707.0" text="3" />
       <Button fx:id="inicio" layoutX="594.0" layoutY="150.0" mnemonicParsing="false" onAction="#smithcInicio" text="Inicio" />
       <Button layoutX="558.0" layoutY="243.0" mnemonicParsing="false" onAction="#switchGenerarContrato" text="Generar Contrato" />
+      <Button layoutX="590.0" layoutY="37.0" mnemonicParsing="false" onAction="#cerrarAppConFicheros" text="close" />
    </children>
 </AnchorPane>

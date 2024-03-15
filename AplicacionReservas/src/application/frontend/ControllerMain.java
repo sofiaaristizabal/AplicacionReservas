@@ -92,7 +92,6 @@ public class ControllerMain {
 		
 	}
 	
-	
 
 	
 	public void displayImage() {

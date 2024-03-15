@@ -249,7 +249,7 @@ public class Aplicacion {
     
     //tirar error
     
-    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, LocalDate fechaEvento, String plan) throws UsuarioNotFoundException, ReservaNotFoundException {
+    public void agregarContrato(String cedula, String codigo, EmpresaPrestadoraServicio empresa, LocalDate fechaEvento, String plan) throws UsuarioNotFoundException, ReservaNotFoundException, ContratoNoPermitidoException {
     	
     	Usuario u = buscarUsuario(cedula);
     	Reserva e = u.buscarReserva(codigo);
@@ -258,7 +258,7 @@ public class Aplicacion {
     		
     		((ReservaLugar) e).agregarContrato(empresa, fechaEvento,plan);
     		
-    	}
+    	} else throw new ContratoNoPermitidoException();
     }
     
 //metodos de ficheros

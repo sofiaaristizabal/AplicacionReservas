@@ -185,7 +185,19 @@ public class ControllerScene5 implements Initializable{
 
 
 
-	
+   public void cerrarAppConFicheros() {
+		
+		
+		try {
+			
+			app.escribirEmpresas();
+			app.escribirUsuarios();
+			app.escribirLugares();
+		} catch (ClassNotFoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
 
 
 

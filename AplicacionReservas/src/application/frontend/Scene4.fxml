@@ -23,5 +23,6 @@
 		<Button fx:id="reservar" layoutX="474.0" layoutY="381.0" mnemonicParsing="false" onAction="#generarReserva" text="Reservar" />
       <Label fx:id="code" alignment="CENTER" layoutX="147.0" layoutY="386.0" prefHeight="21.0" prefWidth="311.0" text="codigo " />
       <Button layoutX="55.0" layoutY="381.0" mnemonicParsing="false" onAction="#switchVerReservas" text="ver reservas" />
+      <Button layoutX="496.0" layoutY="20.0" mnemonicParsing="false" onAction="#cerrarAppConFicheros" text="close" />
 	</children>
 </AnchorPane>
